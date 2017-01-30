@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Saratf
  */
-public class Mouse extends Character{
+public class Mouse implements Serializable{
     
     //class instance variables
     private double strenght;

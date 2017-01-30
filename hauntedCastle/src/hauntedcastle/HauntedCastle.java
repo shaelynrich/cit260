@@ -23,31 +23,39 @@ public class HauntedCastle {
      */
     public static void main(String[] args) {
         Player playerOne = new Player();
-        
         playerOne.setName("Fred Flinstone");
-        
         String playerOneName = playerOne.getName();
-        
         System.out.println(playerOne.toString());
         
-        
-        
         Game playerGame = new Game();
-        
         playerGame.setNumbOfPeople(1);
         playerGame.setTotalTime(10);
-        
         System.out.println(playerGame.toString());
         
-        
-        
         Map mapLocation = new Map();
-        
         mapLocation.setRowCount(5);
         mapLocation.setRowCount(6);
         mapLocation.setHistory("You've been here before");
+        System.out.println(mapLocation.toString());
         
-       System.out.println(mapLocation);
+        Mouse mouseStrenght = new Mouse();
+        mouseStrenght.setStrenght(7);
+        System.out.println(mouseStrenght.toString());
+        
+        Resource typeResource =  new Resource();
+        typeResource.setAmountAvailable(2);
+        typeResource.setLocation("5-7");
+        typeResource.setResourceType("weapon");
+        System.out.println(typeResource.toString());
+        
+        
+        
+        
+        
+        
+       
+       
+       
         
         
         
