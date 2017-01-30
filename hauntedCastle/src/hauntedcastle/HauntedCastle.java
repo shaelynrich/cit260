@@ -5,6 +5,7 @@
  */
 package hauntedcastle;
 
+import byui.cit260.hauntedCastle.model.Game;
 import byui.cit260.hauntedCastle.model.Item;
 import byui.cit260.hauntedCastle.model.Player;
 import byui.cit260.hauntedCastle.model.Character;
@@ -74,5 +75,5 @@ public class HauntedCastle {
         
         System.out.println(questions.toString());
     }
-    
+            
 }
