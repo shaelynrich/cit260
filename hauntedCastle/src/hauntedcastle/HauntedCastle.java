@@ -5,6 +5,7 @@
  */
 package hauntedcastle;
 
+import byui.cit260.hauntedCastle.model.Game;
 import byui.cit260.hauntedCastle.model.Player;
 
 /**
@@ -24,6 +25,8 @@ public class HauntedCastle {
         String playerOneName = playerOne.getName();
         
         System.out.println(playerOne.toString());
+        
+        
     }
-    
+            
 }
