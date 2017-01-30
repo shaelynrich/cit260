@@ -5,8 +5,12 @@
  */
 package hauntedcastle;
 
-import byui.cit260.hauntedCastle.model.Game;
+
 import byui.cit260.hauntedCastle.model.Player;
+import byui.cit260.hauntedCastle.model.Game;
+import byui.cit260.hauntedCastle.model.Map;
+import byui.cit260.hauntedCastle.model.Mouse;
+import byui.cit260.hauntedCastle.model.Resource;
 
 /**
  *
@@ -25,6 +29,26 @@ public class HauntedCastle {
         String playerOneName = playerOne.getName();
         
         System.out.println(playerOne.toString());
+        
+        
+        
+        Game playerGame = new Game();
+        
+        playerGame.setNumbOfPeople(1);
+        playerGame.setTotalTime(10);
+        
+        System.out.println(playerGame.toString());
+        
+        
+        
+        Map mapLocation = new Map();
+        
+        mapLocation.setRowCount(5);
+        mapLocation.setRowCount(6);
+        mapLocation.setHistory("You've been here before");
+        
+       System.out.println(mapLocation);
+        
         
         
     }

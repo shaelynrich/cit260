@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Saratf
  */
-public class Resource implements Serializable{
+public class Resource extends Scene{
     
     private double amountAvailable;
     private String resourceType;
