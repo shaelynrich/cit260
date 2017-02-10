@@ -10,7 +10,7 @@ package byui.cit260.hauntedCastle.control;
  * @author Shaelyn
  */
 public class ComplexEquationsControl {
-    public double calcRandomEquation(double x, double y, double z, double userAnswer) {
+    public boolean calcRandomEquation(double x, double y, double z, double userAnswer) {
       if (x<0 && x>15){
 	return false;
       }
@@ -20,19 +20,15 @@ public class ComplexEquationsControl {
       if (z<0 && z>15){
 	return false;
       }
-      if (userAnswer == ''){
-	return false;
-    }
       if (userAnswer<0 && userAnswer>240){
 	return false;
       }
-	double correctAnswer = x + (y*z);
+	
+      double correctAnswer = x + (y*z);
 
       if (userAnswer == correctAnswer){
 	return true;
       }
-      if (userAnswer != correctAnswer){
-        return false;
-      }
-
+      return false;
+}
 }
