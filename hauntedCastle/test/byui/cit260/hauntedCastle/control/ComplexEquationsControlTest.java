@@ -165,4 +165,19 @@ public class ComplexEquationsControlTest {
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
         }
+
+    /**
+     * Test of calcDiceRollAverage method, of class ComplexEquationsControl.
+     */
+    @Test
+    public void testCalcDiceRollAverage() {
+        System.out.println("calcDiceRollAverage");
+        int[] listOfNumbers = null;
+        ComplexEquationsControl instance = new ComplexEquationsControl();
+        int expResult = 0;
+        int result = instance.calcDiceRollAverage(listOfNumbers);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 }

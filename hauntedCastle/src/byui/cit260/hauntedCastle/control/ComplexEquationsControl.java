@@ -31,4 +31,22 @@ public class ComplexEquationsControl {
       }
       return false;
 }
+    public int calcDiceRollAverage(int [] listOfNumbers) {
+      	
+        int total = 0;
+        
+        if (listOfNumbers.length>10){
+            return -1;
+        }
+        
+        for(int i=0; i<listOfNumbers.length; i++){
+            if(listOfNumbers[i] <0 || listOfNumbers[i] >6){
+                return -1;
+            }
+            total = total + listOfNumbers[i];
+        }
+       
+        int result = total / listOfNumbers.length;
+	return result;
+}
 }
