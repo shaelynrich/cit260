@@ -40,7 +40,7 @@ public class ComplexEquationsControl {
         }
         
         for(int i=0; i<listOfNumbers.length; i++){
-            if(listOfNumbers[i] <0 || listOfNumbers[i] >6){
+            if(listOfNumbers[i] <=0 || listOfNumbers[i] >6){
                 return -1;
             }
             total = total + listOfNumbers[i];

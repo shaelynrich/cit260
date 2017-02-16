@@ -171,13 +171,47 @@ public class ComplexEquationsControlTest {
      */
     @Test
     public void testCalcDiceRollAverage() {
-        System.out.println("calcDiceRollAverage");
-        int[] listOfNumbers = null;
+        System.out.println("calcDiceRollAverage test 1");
+        int[] listOfNumbers = {1, 2, 3, 4, 5, 6, 1, 2, 3, 4};
         ComplexEquationsControl instance = new ComplexEquationsControl();
-        int expResult = 0;
+        int expResult = 3;
         int result = instance.calcDiceRollAverage(listOfNumbers);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        System.out.println("calcDiceRollAverage test 2");
+        int[] list2 = {0, 2, 3, 4, 5, 6, 1, 2, 3, 4};
+        expResult = -1;
+        result = instance.calcDiceRollAverage(list2);
+        assertEquals(expResult, result);
+        
+        System.out.println("calcDiceRollAverage test 3");
+        int[] list3 = {7, 2, 3, 4, 5, 6, 1, 2, 3, 4};
+        expResult = -1;
+        result = instance.calcDiceRollAverage(list3);
+        assertEquals(expResult, result);
+        
+        System.out.println("calcDiceRollAverage test 6");
+        int[] list6 = {0, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5};
+        expResult = -1;
+        result = instance.calcDiceRollAverage(list6);
+        assertEquals(expResult, result);
+        
+        System.out.println("calcDiceRollAverage test 7");
+        int[] list7 = {0, 2, 3, 4, 5, 6, 1, 2, 3};
+        expResult = -1;
+        result = instance.calcDiceRollAverage(list7);
+        assertEquals(expResult, result);
+       
+        System.out.println("calcDiceRollAverage test 4");
+        int[] list4 = {1, 6, 5, 4, 4, 5, 6, 1, 2, 3};
+        expResult = 3;
+        result = instance.calcDiceRollAverage(list4);
+        assertEquals(expResult, result);
+        
+        System.out.println("calcDiceRollAverage test 5");
+        int[] list5 = {6, 1, 6, 5, 5, 6, 1, 2, 3, 4};
+        expResult = 3;
+        result = instance.calcDiceRollAverage(list5);
+        assertEquals(expResult, result);
     }
 }
