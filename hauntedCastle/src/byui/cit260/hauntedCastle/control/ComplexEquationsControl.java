@@ -31,26 +31,23 @@ public class ComplexEquationsControl {
       }
       return false;
 }
-    public double calcVolumeOfPotion (double radius, double height, double volumeOfCylinder, double correctVolumeOfCylinder ){
-        if (radius<0 || height>10){
+    public double calcVolumeOfPotion (double radius, double height, double volumeOfCylinder, double correctVolumeOfCylinder){
+        if (radius<0 || radius>10){
         return -1;
         }
-	if (radius>0 || height<0){
+	if (height>10 || height<0){
         return -1;
-        }
-	if(radius<0 || height>15){
-        return -1;    
         }
         if (volumeOfCylinder <0 && volumeOfCylinder >240){
         return -1;   
         }
         correctVolumeOfCylinder = (Math.PI * Math.pow(radius,2)* height);
-
-	if (volumeOfCylinder == correctVolumeOfCylinder){
-        return correctVolumeOfCylinder;    
+        double roundOff = Math.round(correctVolumeOfCylinder * 100.0) / 100.0;
+        if (volumeOfCylinder == roundOff){
+        return roundOff;    
         }
         else
-        return correctVolumeOfCylinder;    
+        return roundOff;    
 
     }
     }
