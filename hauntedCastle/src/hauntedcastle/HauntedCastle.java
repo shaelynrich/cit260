@@ -24,9 +24,25 @@ import byui.cit260.hauntedCastle.view.StartProgramView;
  */
 public class HauntedCastle {
 
-    /**
-     * @param args the command line arguments
-     */
+    private static Game currentGame = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        HauntedCastle.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        HauntedCastle.player = player;
+    }
+    private static Player player = null;
+    
     public static void main(String[] args) {
       StartProgramView startProgramView = new StartProgramView();
       startProgramView.displayStartProgramView();

@@ -5,10 +5,26 @@
  */
 package byui.cit260.hauntedCastle.control;
 
+import byui.cit260.hauntedCastle.model.Player;
+import hauntedcastle.HauntedCastle;
+
 /**
  *
  * @author Shaelyn
  */
 public class GameControl {
+
+    public static Player createPlayer(String name) {
+        if (name == null){
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        HauntedCastle.setPlayer(player); //save the player
+        
+        return player;
+    }
     
 }
