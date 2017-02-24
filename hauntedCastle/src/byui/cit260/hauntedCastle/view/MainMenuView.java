@@ -5,6 +5,11 @@
  */
 package byui.cit260.hauntedCastle.view;
 
+import byui.cit260.hauntedCastle.control.GameControl;
+import byui.cit260.hauntedCastle.view.GameMenuView;
+import hauntedcastle.HauntedCastle;
+import java.util.Scanner;
+
 /**
  *
  * @author Shaelyn
@@ -42,12 +47,76 @@ public class MainMenuView {
     }
 
     private String getMenuOption() {
-        System.out.println("\n*** getMenuOption() function called ***");
-        return "N";
+        Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
+        String value = ""; //value to be returned
+        boolean valid = false; //initialize to not valid
+        
+        while (!valid) { //loop while an invalid value is enter
+            System.out.println(this.menu);
+            
+            value = keyboard.nextLine(); //get next line typed on keyboard
+            value = value.trim(); //trim off leading and trailing blanks
+            
+            if (value.length() < 1) { //value is blank
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break; //end the loop
+        }
+        return value; //return the value entered   
+
     }
 
-    private boolean doAction(String menuOption) {
-        System.out.println("\n*** doAction() function called ***");
-        return true;    }
+    private boolean doAction(String choice) {
+        choice = choice.toUpperCase(); //convert choice to upper case
+        
+        switch (choice){
+            case "N": //create and start a new game
+                this.startNewGame();
+                break;
+            case "G": //get and start an existing game
+                this.startExistingGame();
+                break;
+            case "H": //display the help menu
+                this.displayHelpMenu();
+                break;
+            case "S": //save the current game
+                this.saveGame();
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try Again");
+        }
+        return false;
+    }
+    
+    private void startNewGame() {
+        //create a new game
+        GameControl.createNewGame(HauntedCastle.getPlayer());
+        
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+    }
+    
+    private void startExistingGame() {
+        System.out.println("\n*** startExistingGame function called ***");
+    }
+    private void saveGame() {
+        System.out.println("\n*** saveGame function called ***");
+    }
+    private void displayHelpMenu() {
+        System.out.println("\n*** displayHelpMenu function called ***");
+    }
+    
+    public HelpMenuView() {
+        this.menu = "\n"
+                  + "\n--------------------------------------"
+                  + "\n| Help Menu                           |"
+                  + "\n--------------------------------------"
+                  + "\nP How to play"
+                  + "\nR Return to Playing the Game"
+                  + "\nQ Quit Game"
+                  + "\n--------------------------------------";
+    }
     
 }

@@ -12,16 +12,16 @@ package byui.cit260.hauntedCastle.control;
 public class ComplexEquationsControl {
 
     public boolean calcRandomEquation(double x, double y, double z, double userAnswer) {
-        if (x < 0 && x > 15) {
+        if (x < 0 || x > 15) {
             return false;
         }
-        if (y < 0 && y > 15) {
+        if (y < 0 || y > 15) {
             return false;
         }
-        if (z < 0 && z > 15) {
+        if (z < 0 || z > 15) {
             return false;
         }
-        if (userAnswer < 0 && userAnswer > 240) {
+        if (userAnswer < 0 || userAnswer > 240) {
             return false;
         }
 
