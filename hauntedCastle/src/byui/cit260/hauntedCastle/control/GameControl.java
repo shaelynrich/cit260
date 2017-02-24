@@ -13,6 +13,11 @@ import hauntedcastle.HauntedCastle;
  * @author Shaelyn
  */
 public class GameControl {
+    
+    public static void createNewGame(Player player){
+        System.out.println("\n*** createNewGame stub function called ***");
+
+    }
 
     public static Player createPlayer(String name) {
         if (name == null){
