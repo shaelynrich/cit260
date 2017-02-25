@@ -5,38 +5,32 @@
  */
 package byui.cit260.hauntedCastle.view;
 
-import byui.cit260.hauntedCastle.control.GameControl;
-import byui.cit260.hauntedCastle.view.GameMenuView;
-import hauntedcastle.HauntedCastle;
 import java.util.Scanner;
 
 /**
  *
  * @author Shaelyn
  */
-public class MainMenuView {
+public class HelpMenuView {
     
-    private String menu;
-
-    public MainMenuView() {
-        this.menu = "\n"
+    private String helpMenu;
+        void displayView() {
+        this.helpMenu = "\n"
                   + "\n--------------------------------------"
-                  + "\n| Main Menu                           |"
+                  + "\n| Help Menu                           |"
                   + "\n--------------------------------------"
-                  + "\nN Start New Game"
-                  + "\nG Get and start saved game"
-                  + "\nH Get help on how to play the game"
-                  + "\nS Save game"
+                  + "\nP How to Play"
+                  + "\nR Return"
                   + "\nQ Quit"
                   + "\n--------------------------------------";
-    }
-
-    public void displayMainMenuView() {
+        }
+        
+     public void displayHelpMenuView() {
         
         boolean done = false; //set flag to none
         do {
             //prompt for and get players name
-            String menuOption = this.getMenuOption();
+            String menuOption = this.getHelpMenuOption();
             if (menuOption.toUpperCase().equals("Q")) //user wants to quit
                 return; //exit the game
             
@@ -46,13 +40,13 @@ public class MainMenuView {
         }while (!done);
     }
 
-    private String getMenuOption() {
+    private String getHelpMenuOption() {
         Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
         String value = ""; //value to be returned
         boolean valid = false; //initialize to not valid
         
         while (!valid) { //loop while an invalid value is enter
-            System.out.println(this.menu);
+            System.out.println(this.helpMenu);
             
             value = keyboard.nextLine(); //get next line typed on keyboard
             value = value.trim(); //trim off leading and trailing blanks
@@ -71,17 +65,11 @@ public class MainMenuView {
         choice = choice.toUpperCase(); //convert choice to upper case
         
         switch (choice){
-            case "N": //create and start a new game
-                this.startNewGame();
+            case "P": //show how to play
+                this.howToPlay();
                 break;
-            case "G": //get and start an existing game
-                this.startExistingGame();
-                break;
-            case "H": //display the help menu
-                this.displayHelpMenu();
-                break;
-            case "S": //save the current game
-                this.saveGame();
+            case "R": //return to where they just were
+                this.returnToHome();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
@@ -89,28 +77,10 @@ public class MainMenuView {
         return false;
     }
     
-    private void startNewGame() {
-        //create a new game
-        GameControl.createNewGame(HauntedCastle.getPlayer());
-        
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void howToPlay() {
+        System.out.println("\n*** howToPlay function called ***");
     }
-    
-    private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void returnToHome() {
+        System.out.println("\n*** returmToHome function called ***");
     }
-    private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
-    }
-    private void displayHelpMenu() {
-        //create help menu
-        GameControl.createHelpMenu(HauntedCastle.getPlayer());
-        
-        //display the help menu
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayView();
-    }
-        
 }
