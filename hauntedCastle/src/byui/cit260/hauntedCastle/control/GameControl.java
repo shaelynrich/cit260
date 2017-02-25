@@ -18,7 +18,10 @@ public class GameControl {
         System.out.println("\n*** createNewGame stub function called ***");
 
     }
+    public static void createHelpMenu(Player player){
+        System.out.println("\n*** createHelpMenu stub function called ***");
 
+    }
     public static Player createPlayer(String name) {
         if (name == null){
             return null;
