@@ -14,13 +14,13 @@ import java.util.Scanner;
 public class HelpMenuView {
     
     private String helpMenu;
-        void displayView() {
+    public HelpMenuView() {
         this.helpMenu = "\n"
                   + "\n--------------------------------------"
                   + "\n| Help Menu                           |"
                   + "\n--------------------------------------"
                   + "\nP How to Play"
-                  + "\nR Return"
+                  + "\nR Goal of the Game"
                   + "\nQ Quit"
                   + "\n--------------------------------------";
         }
@@ -69,7 +69,7 @@ public class HelpMenuView {
                 this.howToPlay();
                 break;
             case "R": //return to where they just were
-                this.returnToHome();
+                this.goalOfTheGame();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
@@ -80,7 +80,14 @@ public class HelpMenuView {
     private void howToPlay() {
         System.out.println("\n*** howToPlay function called ***");
     }
-    private void returnToHome() {
-        System.out.println("\n*** returmToHome function called ***");
+    private void goalOfTheGame () {
+         System.out.println(
+        "\n***********************************************************************"
+       + "\n*                                                                    *"
+       + "\n* To win the game you must retrieve the key and unlock the gate.     *"
+       + "\n* In order to do this, each challenge must be completed successfully.*"
+       + "\n* Beware of the mad scientist.                                       *"
+       + "\n* Good luck!                                                         *"
+        );
     }
 }

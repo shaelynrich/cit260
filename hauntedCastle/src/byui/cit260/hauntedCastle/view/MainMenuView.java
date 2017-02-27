@@ -106,11 +106,10 @@ public class MainMenuView {
     }
     private void displayHelpMenu() {
         //create help menu
-        GameControl.createHelpMenu(HauntedCastle.getPlayer());
         
         //display the help menu
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayView();
+        helpMenu.displayHelpMenuView();
     }
         
 }
