@@ -37,6 +37,7 @@ public class StartProgramView {
        + "\n* only to be unlocked once you find the key and all challenges are completed.*"
        + "\n* To win the game you must retrieve the key and unlock the gate.             *"
        + "\n* In order to do this, each challenge must be completed successfully.        *"
+                
         );
     }
 
