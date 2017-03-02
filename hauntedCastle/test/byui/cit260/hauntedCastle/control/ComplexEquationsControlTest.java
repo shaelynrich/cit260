@@ -182,17 +182,17 @@ public class ComplexEquationsControlTest {
     @Test
     public void testCalcVolumeOfPotion() {
         System.out.println("test 1");
-        double radius = 2;
-        double height = 4;
-        double volumeOfCylinder = 50.27;
-        double correctVolumeOfCylinder = 50.27;
+        int radius = 2;
+        int height = 4;
+        int volumeOfCylinder = 50;
+        int correctVolumeOfCylinder = 50;
         ComplexEquationsControl instance = new ComplexEquationsControl();
-        double expResult = 50.27;
-        double result = instance.calcVolumeOfPotion(radius, height, volumeOfCylinder, correctVolumeOfCylinder);
-        assertEquals(expResult, result,0.0);
+        int expResult = 50;
+        int result = instance.calcVolumeOfPotion(radius, height, volumeOfCylinder, correctVolumeOfCylinder);
+        assertEquals(expResult, result,0);
         System.out.println("test 2");
         radius = 8;
-        height = -2;
+        height = 2;
         volumeOfCylinder = -1;
         correctVolumeOfCylinder = -1;
         expResult = -1;
@@ -216,7 +216,7 @@ public class ComplexEquationsControlTest {
         assertEquals(expResult, result,0.0);
         System.out.println("test 5");
         radius = 2;
-        height = 10.5;
+        height = 10;
         volumeOfCylinder = -1;
         correctVolumeOfCylinder = -1;
         expResult = -1;
@@ -245,7 +245,7 @@ public class ComplexEquationsControlTest {
         correctVolumeOfCylinder = -1;
         expResult = -1;
         result = instance.calcVolumeOfPotion(radius, height, volumeOfCylinder, correctVolumeOfCylinder);
-        assertEquals(expResult, result,0.0);
+        assertEquals(expResult, result,0);
     }
     /*
      * Test of calcDiceRollAverage method, of class ComplexEquationsControl.
