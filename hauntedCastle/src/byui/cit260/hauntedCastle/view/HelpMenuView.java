@@ -17,7 +17,7 @@ public class HelpMenuView {
     public HelpMenuView() {
         this.helpMenu = "\n"
                   + "\n--------------------------------------"
-                  + "\n| Help Menu                           |"
+                  + "\n| Help Menu                          |"
                   + "\n--------------------------------------"
                   + "\nP How to Play"
                   + "\nR Goal of the Game"
@@ -78,7 +78,13 @@ public class HelpMenuView {
     }
     
     private void howToPlay() {
-        System.out.println("\n*** howToPlay function called ***");
+        System.out.println(   "\n***********************************************************************"
+                            + "\n* How to play the game:                                               *"
+                            + "\n*                                                                     *"
+                            + "\n* The game will have challenges that you need to complete.            *"
+                            + "\n* Some will require doing math, others will require exploring.        *"
+                            + "\n* To give the commands, just follow the prompting in the screen.      *"
+                             );
     }
     private void goalOfTheGame () {
          System.out.println(

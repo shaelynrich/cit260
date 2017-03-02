@@ -76,6 +76,7 @@ public class StartProgramView {
         }
         return value; //return the value entered    
         }
+    
 
     private boolean doAction(String playersName) {
         if (playersName.length() <2){
