@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 public class StartProgramView {
      private String promptMessage;
+     
      public StartProgramView(){
          this.promptMessage = "\nPlease enter your name: ";
          this.displayBanner();
@@ -76,6 +77,7 @@ public class StartProgramView {
         }
         return value; //return the value entered    
         }
+  
     
 
     private boolean doAction(String playersName) {
@@ -93,24 +95,27 @@ public class StartProgramView {
             return false;
         }
         //display next view
+        
+        CharacterMenu CharacterView = new CharacterMenu();
         this.displayNextView(player);
+        //this.displayNextView(player);
         return true; //success
     }
 
-        private void displayNextView(Player player) {
+     private void displayNextView(Player player) {
             
             
         //display a custom welcome message
-        //System.out.println("\n=================================================="
-                            //+ "\n Welcome to the game " + player.getName()
-                            //+ "\n We hope you have a lot of fun!"
-                            //+ "\n==============================================="
-                            //);
+        System.out.println("\n=================================================="
+                            + "\n Welcome to the game " + player.getName()
+                            + "\n We hope you have a lot of fun!"
+                            + "\n==============================================="
+                            );
         //create mainMenuView object
-        CharacterMenu characterMenu = new CharacterMenu();
+        MainMenuView mainMenuView = new MainMenuView();
         
         //display the main menu view
-        characterMenu.displayCharacter();
-        }
+        mainMenuView.displayMainMenuView();
+        }          
         
 }

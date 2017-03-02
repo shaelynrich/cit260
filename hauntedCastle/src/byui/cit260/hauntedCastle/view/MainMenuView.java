@@ -124,7 +124,7 @@ public class MainMenuView {
         Random randomGenerator = new Random();
         
         int radius = randomGenerator.nextInt(11);
-         int height = randomGenerator.nextInt(11);
+        int height = randomGenerator.nextInt(11);
          
          
         // call the control function to calculuate the volume of potion

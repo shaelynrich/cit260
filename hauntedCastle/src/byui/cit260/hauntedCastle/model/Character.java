@@ -18,6 +18,9 @@ public class Character implements Serializable{
     public String description;
     public String displaySymbol;
 
+    
+    public String gender;
+
     public Character() {
     }
 
@@ -93,6 +96,14 @@ public class Character implements Serializable{
             return false;
         }
         return true;
-    }
+        }
+    
+        public String getGender() {
+        return gender;
+        }
+
+        public void setGender(String gender) {
+        this.gender = gender;
+        }
     
 }
