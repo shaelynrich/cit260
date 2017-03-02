@@ -28,6 +28,7 @@ public class MainMenuView {
                   + "\nH Get help on how to play the game"
                   + "\nS Save game"
                   + "\nQ Quit"
+                  + "\nC CalcRandomEquation"
                   + "\n--------------------------------------";
     }
 
@@ -83,6 +84,9 @@ public class MainMenuView {
             case "S": //save the current game
                 this.saveGame();
                 break;
+            case "C": //calc random
+                this.calcRandomEquation();
+                break;    
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
         }
@@ -91,11 +95,11 @@ public class MainMenuView {
     
     private void startNewGame() {
         //create a new game
-        GameControl.createNewGame(HauntedCastle.getPlayer());
+        //GameControl.createNewGame(HauntedCastle.getPlayer());
         
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.displayGameMenuView();
     }
     
     private void startExistingGame() {
@@ -105,11 +109,15 @@ public class MainMenuView {
         System.out.println("\n*** saveGame function called ***");
     }
     private void displayHelpMenu() {
-        //create help menu
-        
-        //display the help menu
+       
+        //create the help menu
         HelpMenuView helpMenu = new HelpMenuView();
+        //display the help menu
         helpMenu.displayHelpMenuView();
     }
-        
+    private void calcRandomEquation() {
+        CalcRandomEquation calcRandomEquation = new CalcRandomEquation();
+        //display the help menu
+        //calcRandomEquation.displayBanner();
+    }    
 }
