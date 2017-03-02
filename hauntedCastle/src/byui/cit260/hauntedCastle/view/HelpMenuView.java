@@ -19,9 +19,9 @@ public class HelpMenuView {
                   + "\n--------------------------------------"
                   + "\n| Help Menu                          |"
                   + "\n--------------------------------------"
-                  + "\nP How to Play"
-                  + "\nR Goal of the Game"
-                  + "\nQ Quit"
+                  + "\nP How to Play                        |"
+                  + "\nR Goal of the Game                   |"
+                  + "\nQ Quit                               |"
                   + "\n--------------------------------------";
         }
         
@@ -84,16 +84,18 @@ public class HelpMenuView {
                             + "\n* The game will have challenges that you need to complete.            *"
                             + "\n* Some will require doing math, others will require exploring.        *"
                             + "\n* To give the commands, just follow the prompting in the screen.      *"
+                            + "\n***********************************************************************"
                              );
     }
     private void goalOfTheGame () {
          System.out.println(
-        "\n***********************************************************************"
+         "\n**********************************************************************"
        + "\n*                                                                    *"
        + "\n* To win the game you must retrieve the key and unlock the gate.     *"
        + "\n* In order to do this, each challenge must be completed successfully.*"
        + "\n* Beware of the mad scientist.                                       *"
        + "\n* Good luck!                                                         *"
+       + "\n**********************************************************************"        
         );
     }
 }

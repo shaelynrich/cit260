@@ -26,12 +26,12 @@ public class MainMenuView {
                   + "\n--------------------------------------"
                   + "\n| Main Menu                           |"
                   + "\n--------------------------------------"
-                  + "\nN Start New Game"
-                  + "\nG Get and start saved game"
-                  + "\nH Get help on how to play the game"
-                  + "\nS Save game"
-                  + "\nQ Quit"
-                  + "\nV testPotionVolume"
+                  + "\nN Start New Game                      |"                     
+                  + "\nG Get and start saved game            |"
+                  + "\nH Get help on how to play the game    |"
+                  + "\nS Save game                           |"
+                  + "\nQ Quit                                |"
+                  + "\nV testPotionVolume                    |"
                   + "\n--------------------------------------";
     }
 

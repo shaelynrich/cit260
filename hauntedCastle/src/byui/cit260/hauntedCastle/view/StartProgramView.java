@@ -38,6 +38,7 @@ public class StartProgramView {
        + "\n* only to be unlocked once you find the key and all challenges are completed.*"
        + "\n* To win the game you must retrieve the key and unlock the gate.             *"
        + "\n* In order to do this, each challenge must be completed successfully.        *"
+       +"\n                                                                               "
        +"\n                       /^^^^^^^^^^^^^^^^^^^^^^^^^^\\                           "
        +"\n                      /^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\                          "
        +"\n                     /^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\                         "
@@ -122,7 +123,7 @@ public class StartProgramView {
             
             
         //display a custom welcome message
-        System.out.println("\n=================================================="
+        System.out.println("   \n==============================================="
                             + "\n Welcome to the game " + player.getName()
                             + "\n We hope you have a lot of fun!"
                             + "\n==============================================="

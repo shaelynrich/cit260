@@ -184,59 +184,57 @@ public class ComplexEquationsControlTest {
         System.out.println("test 1");
         int radius = 2;
         int height = 4;
-        int correctVolumeOfCylinder = 50;
-        ComplexEquationsControl instance = new ComplexEquationsControl();
-        int expResult = 50;
-        int result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder);
-        assertEquals(expResult, result);
+
+        double expResult = 50;
+        double result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
+        assertEquals(expResult, result, 0.01);
         System.out.println("test 2");
         radius = 8;
         height = 2;
-        correctVolumeOfCylinder = -1;
         expResult = -1;
-        result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder);
-        assertEquals(expResult, result,0.0);
+        result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
+        assertEquals(expResult, result, 0.01);
         System.out.println("test 3");
         radius = 23;
         height = 9;
-        correctVolumeOfCylinder = -1;
         expResult = -1;
-        result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder);
-        assertEquals(expResult, result,0.0);
+        
+        result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
+        assertEquals(expResult, result, 0.01);
         System.out.println("test 4");
         radius = 23;
         height = 0;
-        correctVolumeOfCylinder = -1;
+
         expResult = -1;
-        result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder);
-        assertEquals(expResult, result,0.0);
+        result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
+        assertEquals(expResult, result,0.01);
         System.out.println("test 5");
         radius = 2;
         height = 10;
-        correctVolumeOfCylinder = -1;
+
         expResult = -1;
-        result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder);
-        assertEquals(expResult, result,0.0);
+        result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
+        assertEquals(expResult, result, 0.01);
         System.out.println("test 5");
         radius = -7;
         height = 9;
-        correctVolumeOfCylinder = -1;
+      
         expResult = -1;
-        result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder);
-        assertEquals(expResult, result,0.0);
+        result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
+        assertEquals(expResult, result, 0.01);
         System.out.println("test 6");
         radius = 0;
         height = 12;
-        correctVolumeOfCylinder = -1;
+
         expResult = -1;
-        result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder));
-        assertEquals(expResult, result,0.0);
+        result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
+        assertEquals(expResult, result, 0.01);
         System.out.println("test 7");
         radius = 13;
         height = 9;
-        correctVolumeOfCylinder = -1;
+
         expResult = -1;
-        result = instance.calcVolumeOfPotion(radius, height, correctVolumeOfCylinder);
+        result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result,0);
     }
     /*
