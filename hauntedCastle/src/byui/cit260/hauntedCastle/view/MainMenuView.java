@@ -132,7 +132,7 @@ public class MainMenuView {
         
         // if result is invalid
         if (result <0){
-            System.out.println("try again");
+            System.out.println("It seems your potion disappeared! You’ll have to try it again!");
             return false;
         }
         
