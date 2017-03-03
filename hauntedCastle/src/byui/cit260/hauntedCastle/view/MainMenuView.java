@@ -118,6 +118,6 @@ public class MainMenuView {
     private void calcRandomEquation() {
         CalcRandomEquation calcRandomEquation = new CalcRandomEquation();
         //display the help menu
-        //calcRandomEquation.displayBanner();
+        calcRandomEquation.displayCalcRandomEquationView();
     }    
 }

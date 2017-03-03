@@ -8,18 +8,29 @@ package byui.cit260.hauntedCastle.view;
  *
  * @author Shaelyn
  */
+import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
 import java.util.Random;
 import java.util.Scanner;
 
 public class CalcRandomEquation {
+    private String promptMessage;
+    private double randomX;
+    private double randomY;
+    private double randomZ; 
+    
+    
     public CalcRandomEquation(){
-            this.displayBanner();
+        this.promptMessage = this.createEquation();
     }
     
-private String displayBanner;
-void displayBanner() {
-        System.out.println(
-        "\n*******************************************************************************"
+    private String createEquation() {
+        
+        Random rnd = new Random();
+        randomX = rnd.nextInt(16);
+        randomY = rnd.nextInt(16);
+        randomZ = rnd.nextInt(16);
+
+       return "\n*******************************************************************************"
        + "\n*                                                                            *"
        + "\n* Three random numbers will be generated in the form of a math equation.     *"
        + "\n* For example, x + (y * z)                                                   *"
@@ -27,69 +38,56 @@ void displayBanner() {
        + "\n* Only then will you be able to pass on to the next level.                   *"
        + "\n* Here is the equation:                                                      *"
        + "\n******************************************************************************"
-       );
-     
-// boolean done = false; //set flag to none
-//        do {
-//            //prompt for and get players name
-//            String menuOption = this.getAnswer();
-//            if (menuOption.toUpperCase().equals("Q")) //user wants to quit
-//                return; //exit the game
-//            
-//            //do the requested action and display the next view
-//            done = this.doAction(menuOption);
-//                
-//        }while (!done);
+       + "\n\n\t" + randomX + " + (" + randomY + " * " + randomZ + ")";        
+
+    }
+    
+   public void displayCalcRandomEquationView() {
         
-Random rnd = new Random();
-int randomX = rnd.nextInt(16);
+        boolean done = false; //set flag to none
+        do {
+            //prompt for and get players name
+            String userAnswer = this.getUserAnswer();
+            if (userAnswer.toUpperCase().equals("Q")) //user wants to quit
+                return; //exit the game
+            
+            //do the requested action and display the next view
+            done = this.doAction(userAnswer);
+                
+        }while (!done);
+    }
 
-int randomY = rnd.nextInt(16);
-
-int randomZ = rnd.nextInt(16);
-
-System.out.println(randomX+ " + (" + randomY + " * " + randomZ + ")");
+    private String getUserAnswer() {
+        Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
+        String value = ""; //value to be returned
+        boolean valid = false; //initialize to not valid
         
+        while (!valid) { //loop while an invalid value is enter
+            System.out.println(this.promptMessage);
+            
+            value = keyboard.nextLine(); //get next line typed on keyboard
+            value = value.trim(); //trim off leading and trailing blanks
+            
+            if (value.length() < 1) { //value is blank
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break; //end the loop
+        }
+        return value; //return the value entered   
+
+    }  
+
+    private boolean doAction(String userAnswer) {
+        
+       double answer = Double.parseDouble(userAnswer);
+       boolean correct = ComplexEquationsControl.calcRandomEquation(randomX, randomY, randomZ, answer);
+       if (!correct) {
+           System.out.println("\n*Wrong answer. Please try again.");
+           this.promptMessage = this.createEquation();
+           return false;
+       }
+       System.out.println("\n*You answered correctly!");
+       return true;
+    }
 }
-//get input
-
-//private String getAnswer() {
-//        Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
-//        String value = ""; //value to be returned
-//        boolean valid = false; //initialize to not valid
-//        
-//        while (!valid) { //loop while an invalid value is enter
-//            System.out.println(this.displayBanner);
-//            
-//            value = keyboard.nextLine(); //get next line typed on keyboard
-//            value = value.trim(); //trim off leading and trailing blanks
-//            
-//            if (value.length() < 1) { //value is blank
-//                System.out.println("\nInvalid value: value can not be blank");
-//                continue;
-//            }
-//            break; //end the loop
-//        }
-//        return value; //return the value entered   
-//
-//    }
-////call the function from the control, pass randomX parameters
-////doAction compare user answer to expected answer
-//private boolean doAction(String choice) {
-//        choice = choice.toUpperCase(); //convert choice to upper case
-//        
-//        switch (choice){
-////            case "P": //show how to play
-////                this.howToPlay();
-////                break;
-////            case "R": //return to where they just were
-////                this.goalOfTheGame();
-////                break;
-//            default:
-//                System.out.println("\n*** Invalid selection *** Try Again");
-//        }
-//        return false;
-//    }
-}
-
-
