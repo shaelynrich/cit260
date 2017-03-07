@@ -6,10 +6,6 @@
 package byui.cit260.hauntedCastle.view;
 
 import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
-import static byui.cit260.hauntedCastle.control.ComplexEquationsControl.calcVolumeOfPotion;
-import byui.cit260.hauntedCastle.control.GameControl;
-import byui.cit260.hauntedCastle.view.GameMenuView;
-import hauntedcastle.HauntedCastle;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,6 +28,7 @@ public class MainMenuView {
                   + "\nS Save game                           |"
                   + "\nQ Quit                                |"
                   + "\nV testPotionVolume                    |"
+                  + "\nC CalcRandomEquation"
                   + "\n--------------------------------------";
     }
 
@@ -87,6 +84,9 @@ public class MainMenuView {
             case "S": //save the current game
                 this.saveGame();
                 break;
+            case "C": //calc random
+                this.calcRandomEquation();
+                break;    
             case "V": //save the current game
                 return this.calcOfPotion();    
             default:
@@ -97,11 +97,11 @@ public class MainMenuView {
     
     private void startNewGame() {
         //create a new game
-        GameControl.createNewGame(HauntedCastle.getPlayer());
+        //GameControl.createNewGame(HauntedCastle.getPlayer());
         
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.displayGameMenuView();
     }
     
     private void startExistingGame() {
@@ -111,12 +111,17 @@ public class MainMenuView {
         System.out.println("\n*** saveGame function called ***");
     }
     private void displayHelpMenu() {
-        //create help menu
-        
-        //display the help menu
+       
+        //create the help menu
         HelpMenuView helpMenu = new HelpMenuView();
+        //display the help menu
         helpMenu.displayHelpMenuView();
     }
+    private void calcRandomEquation() {
+        CalcRandomEquation calcRandomEquation = new CalcRandomEquation();
+        //display the help menu
+        calcRandomEquation.displayCalcRandomEquationView();
+    }    
 
     private boolean calcOfPotion() {
         
@@ -137,12 +142,6 @@ public class MainMenuView {
         }
         
         System.out.println("good job" + "The volume of the potion is " + result);
-         return true; 
-           
-            
-            
-        
- 
+         return true;  
     }
-        
-}
+ }

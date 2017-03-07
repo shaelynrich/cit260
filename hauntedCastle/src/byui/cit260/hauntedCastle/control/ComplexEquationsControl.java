@@ -11,7 +11,7 @@ package byui.cit260.hauntedCastle.control;
  */
 public class ComplexEquationsControl {
 
-    public boolean calcRandomEquation(double x, double y, double z, double userAnswer) {
+    public static boolean calcRandomEquation(double x, double y, double z, double userAnswer) {
         if (x < 0 || x > 15) {
             return false;
         }
