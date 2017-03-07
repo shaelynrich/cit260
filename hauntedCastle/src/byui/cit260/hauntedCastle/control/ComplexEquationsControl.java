@@ -33,23 +33,20 @@ public class ComplexEquationsControl {
         return false;
     }
 
-    public double calcVolumeOfPotion(double radius, double height, double volumeOfCylinder, double correctVolumeOfCylinder) {
+    public static double calcVolumeOfPotion(int radius, int height) {
         if (radius < 0 || radius > 10) {
             return -1;
         }
         if (height > 10 || height < 0) {
             return -1;
         }
-        if (volumeOfCylinder < 0 && volumeOfCylinder > 240) {
+        double correctVolumeOfCylinder = (Math.PI * Math.pow(radius, 2) * height);
+        if (correctVolumeOfCylinder <= 0 || correctVolumeOfCylinder > 240) {
             return -1;
         }
-        correctVolumeOfCylinder = (Math.PI * Math.pow(radius, 2) * height);
+        
         double roundOff = Math.round(correctVolumeOfCylinder * 100.0) / 100.0;
-        if (volumeOfCylinder == roundOff) {
-            return roundOff;
-        } else {
-            return roundOff;
-        }
+        return roundOff;
 
     }
 

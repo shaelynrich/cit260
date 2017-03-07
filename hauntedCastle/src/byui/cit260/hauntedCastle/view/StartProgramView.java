@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 public class StartProgramView {
      private String promptMessage;
+     
      public StartProgramView(){
          this.promptMessage = "\nPlease enter your name: ";
          this.displayBanner();
@@ -37,6 +38,24 @@ public class StartProgramView {
        + "\n* only to be unlocked once you find the key and all challenges are completed.*"
        + "\n* To win the game you must retrieve the key and unlock the gate.             *"
        + "\n* In order to do this, each challenge must be completed successfully.        *"
+       +"\n                                                                               "
+       +"\n                       /^^^^^^^^^^^^^^^^^^^^^^^^^^\\                           "
+       +"\n                      /^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\                          "
+       +"\n                     /^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\                         "
+       +"\n                    /^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\                        "
+       +"\n                   /^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\                       "
+       +"\n                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                        "
+       +"\n                   ::::::::::::::::::::::::::::::::::::                        "
+       +"\n                   ::::::::::::::::::::::::::::::::::::                        "
+       +"\n                   ::::::####:::::#####::::::####::::::                        "
+       +"\n                   ::::::####:::::#####::::::####::::::                        "
+       +"\n                   ::::::####:::::#####::::::####::::::                        "
+       +"\n                   ::::::::::::::::::::::::::::::::::::                        "
+       +"\n                   ::::::####:::::I    I:::::####::::::                        "
+       +"\n                   ::::::####:::::I    I:::::####::::::                        "
+       +"\n                   ::::::####:::::I'   I:::::####::::::                        "
+       +"\n                   :::::::::::::::I____I:::::::::::::::                        "         
+                
         );
     }
 
@@ -75,6 +94,8 @@ public class StartProgramView {
         }
         return value; //return the value entered    
         }
+  
+    
 
     private boolean doAction(String playersName) {
         if (playersName.length() <2){
@@ -91,13 +112,18 @@ public class StartProgramView {
             return false;
         }
         //display next view
+        
+        CharacterMenu CharacterView = new CharacterMenu();
         this.displayNextView(player);
+        //this.displayNextView(player);
         return true; //success
     }
 
-        private void displayNextView(Player player) {
+     private void displayNextView(Player player) {
+            
+            
         //display a custom welcome message
-        System.out.println("\n=================================================="
+        System.out.println("   \n==============================================="
                             + "\n Welcome to the game " + player.getName()
                             + "\n We hope you have a lot of fun!"
                             + "\n==============================================="
@@ -107,5 +133,6 @@ public class StartProgramView {
         
         //display the main menu view
         mainMenuView.displayMainMenuView();
-        }
+        }          
+        
 }
