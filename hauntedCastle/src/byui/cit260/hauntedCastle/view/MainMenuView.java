@@ -82,12 +82,12 @@ public class MainMenuView extends View{
         //create the help menu
         HelpMenuView helpMenu = new HelpMenuView();
         //display the help menu
-        helpMenu.displayHelpMenuView();
+        helpMenu.display();
     }
     private void calcRandomEquation() {
         CalcRandomEquation calcRandomEquation = new CalcRandomEquation();
         //display the help menu
-        calcRandomEquation.displayCalcRandomEquationView();
+        calcRandomEquation.display();
     }    
 
     private boolean calcOfPotion() {
