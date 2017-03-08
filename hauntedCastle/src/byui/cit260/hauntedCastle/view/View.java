@@ -5,6 +5,8 @@
  */
 package byui.cit260.hauntedCastle.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Saratf
@@ -32,6 +34,28 @@ public abstract class View implements ViewInterface {
             done = this.doAction(value);
             
         }while(!done);  
-     }        
+     }     
+    
+     @Override
+     public String getInput(){
+        Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
+        String value = null; //value to be returned
+        boolean valid = false; //initialize to not valid
+        
+        while (!valid) { //loop while an invalid value is enter
+            System.out.println("\n" + this.displayMessage);
+            
+            value = keyboard.nextLine(); //get next line typed on keyboard
+            value = value.trim(); //trim off leading and trailing blanks
+            
+            if (value.length() < 1) { //value is blank
+                System.out.println("\nYou must enter a value");
+                continue;
+            }
+            break; //end the loop
+        }
+        return value; //return the value entered   
+
+     }
      
 }
