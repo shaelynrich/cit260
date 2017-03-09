@@ -5,6 +5,7 @@
  */
 package byui.cit260.hauntedCastle.view;
 
+import byui.cit260.hauntedCastle.control.GameControl;
 import byui.cit260.hauntedCastle.model.Player;
 import hauntedcastle.HauntedCastle;
 import java.util.Scanner;
@@ -13,25 +14,11 @@ import java.util.Scanner;
  *
  * @author Saratf
  */
-public class CharacterMenu {
+public class CharacterMenu extends View{
     
     public CharacterMenu(){
         
-         this.chooseCharacter();
-    }
-    
-    
-  
-    
-    private String chooseCharacter(){
-        //read input from user
-        Scanner keyboard = new Scanner(System.in);
-        //get input from the user
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) { //loop while an invalid value is enter
-            System.out.println("\nPick your character. "
+         super("\nPick your character. "
                                + "G for a girl or B for a boy."
                                     +"\n                                        "
                                     +"\n      ,-,                n_             "
@@ -39,21 +26,22 @@ public class CharacterMenu {
                                     +"\n    ~~/ \\~~            --|--           "
                                     +"\n     /___\\               :             "
                                     +"\n     _| |_             _/ \\_           ");
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue; 
-            }
-            
-            break; //end the loop
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        String character = GameControl.createCharacter(value);
+        if (character == null){
+           System.out.println("Try again");
+           return false;
         }
-        
-        
-        
-        return value; //return the value entered 
+        System.out.println("congratulations" + character);
+        return true;
     }
 }
+    
+    
+  
+    
+    
     
