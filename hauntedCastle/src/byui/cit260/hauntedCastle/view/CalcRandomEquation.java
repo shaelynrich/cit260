@@ -12,15 +12,17 @@ import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
 import java.util.Random;
 import java.util.Scanner;
 
-public class CalcRandomEquation {
-    private String promptMessage;
+public class CalcRandomEquation extends View{
+
     private double randomX;
     private double randomY;
     private double randomZ; 
     
     
     public CalcRandomEquation(){
-        this.promptMessage = this.createEquation();
+        super();
+             
+        this.displayMessage = this.createEquation();
     }
     
     private String createEquation() {
@@ -42,49 +44,14 @@ public class CalcRandomEquation {
 
     }
     
-   public void displayCalcRandomEquationView() {
-        
-        boolean done = false; //set flag to none
-        do {
-            //prompt for and get players name
-            String userAnswer = this.getUserAnswer();
-            if (userAnswer.toUpperCase().equals("Q")) //user wants to quit
-                return; //exit the game
-            
-            //do the requested action and display the next view
-            done = this.doAction(userAnswer);
-                
-        }while (!done);
-    }
-
-    private String getUserAnswer() {
-        Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is enter
-            System.out.println(this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break; //end the loop
-        }
-        return value; //return the value entered   
-
-    }  
-
-    private boolean doAction(String userAnswer) {
+    @Override
+    public boolean doAction(String userAnswer) {
         
        double answer = Double.parseDouble(userAnswer);
        boolean correct = ComplexEquationsControl.calcRandomEquation(randomX, randomY, randomZ, answer);
        if (!correct) {
            System.out.println("\n*Wrong answer. Please try again.");
-           this.promptMessage = this.createEquation();
+           this.displayMessage = this.createEquation();
            return false;
        }
        System.out.println("\n*You answered correctly!");

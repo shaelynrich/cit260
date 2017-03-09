@@ -13,11 +13,11 @@ import java.util.Scanner;
  *
  * @author Shaelyn
  */
-public class StartProgramView {
-     private String promptMessage;
-     
+public class StartProgramView extends View{
+          
      public StartProgramView(){
-         this.promptMessage = "\nPlease enter your name: ";
+         super();
+         this.displayMessage = "\nPlease enter your name: ";
          this.displayBanner();
 }
 
@@ -59,45 +59,9 @@ public class StartProgramView {
         );
     }
 
-    public void displayStartProgramView() {
-        
-        boolean done = false; //set flag to not done
-        do {
-            //prompt for and get players name
-            String playersName = this.getPlayerName();
-            if (playersName.toUpperCase().equals("Q")) //user wants to quit
-                return; //exit the game
-            
-            //do the requested action and display the next view
-            done = this.doAction(playersName);
-            
-        }while(!done);
-    }
-
-    private String getPlayerName() {
-        Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        return value; //return the value entered    
-        }
-  
     
-
-    private boolean doAction(String playersName) {
+    @Override
+    public boolean doAction(String playersName) {
         if (playersName.length() <2){
             System.out.println("\nInvalid players name: "
                                 + "The name must be greater than one character in length");
