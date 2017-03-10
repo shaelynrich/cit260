@@ -34,5 +34,9 @@ public class GameControl {
         
         return player;
     }
+    public static String createCharacter (String gender){
+        String girl = "You picked a girl character";
+        return girl;
+    }
     
 }
