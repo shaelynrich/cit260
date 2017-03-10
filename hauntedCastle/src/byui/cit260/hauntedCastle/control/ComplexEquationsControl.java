@@ -69,4 +69,23 @@ public class ComplexEquationsControl {
         return result;
 
     }
+    
+    public static boolean calcCreateQuestions (String answer1, String answer2, String answer3, String answer4, String answer5){
+        if ("True".equals(answer1)){
+            return false;
+        }
+        if ("False".equals(answer2)){
+            return false;
+        }
+        if ("False".equals(answer3)){
+            return false;
+        }
+        if ("True".equals(answer4)){
+            return false;
+        }
+        if ("False".equals(answer5)){
+            return false;
+        }
+        return true;
+    }
 }

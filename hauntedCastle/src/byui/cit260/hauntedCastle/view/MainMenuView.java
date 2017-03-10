@@ -29,6 +29,7 @@ public class MainMenuView extends View{
                   + "\nS Save game                           |"
                   + "\nQ Quit                                |"
                   + "\nV testPotionVolume                    |"
+                  + "\nA challenge1                          |"
                   + "\nC CalcRandomEquation"
                   + "\n--------------------------------------");
     }
@@ -53,7 +54,10 @@ public class MainMenuView extends View{
                 break;
             case "C": //calc random
                 this.calcRandomEquation();
-                break;    
+                break;
+            case "A": //calc random
+                this.challenge1();
+                break; 
             case "V": //save the current game
                 return this.calcOfPotion();    
             default:
@@ -88,6 +92,10 @@ public class MainMenuView extends View{
         CalcRandomEquation calcRandomEquation = new CalcRandomEquation();
         //display the help menu
         calcRandomEquation.display();
+    }
+    private void challenge1() {
+        Challenge1 challenge1 = new Challenge1();
+        challenge1.display();
     }    
 
     private boolean calcOfPotion() {
