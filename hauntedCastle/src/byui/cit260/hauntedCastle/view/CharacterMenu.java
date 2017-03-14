@@ -19,13 +19,13 @@ public class CharacterMenu extends View{
     public CharacterMenu(){
         
          super("\nPick your character. "
-                               + "G for a girl or B for a boy."
-                                    +"\n                                        "
-                                    +"\n      ,-,                n_             "
-                                    +"\n     ((\"))              (\")           "
-                                    +"\n    ~~/ \\~~            --|--           "
-                                    +"\n     /___\\               :             "
-                                    +"\n     _| |_             _/ \\_           ");
+               + "G for a girl or B for a boy."
+               +"\n                                        "
+               +"\n      ,-,                n_             "
+               +"\n     ((\"))              (\")           "
+               +"\n    ~~/ \\~~            --|--           "
+               +"\n     /___\\               :             "
+               +"\n     _| |_             _/ \\_           ");
     }
 
     @Override
