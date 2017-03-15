@@ -86,17 +86,12 @@ public class StartProgramView extends View{
      private void displayNextView(Player player) {
             
             
-        //display a custom welcome message
-        System.out.println("   \n==============================================="
-                            + "\n Welcome to the game " + player.getName()
-                            + "\n We hope you have a lot of fun!"
-                            + "\n***********************************************"
-                            );
+       
         //create mainMenuView object
-        MainMenuView mainMenuView = new MainMenuView();
+        CharacterMenu BoyAndGirl = new CharacterMenu();
         
         //display the main menu view
-        mainMenuView.display();
+        BoyAndGirl.display();
         }          
         
 }
