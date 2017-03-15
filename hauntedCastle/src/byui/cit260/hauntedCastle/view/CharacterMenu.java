@@ -18,26 +18,48 @@ public class CharacterMenu extends View{
     
     public CharacterMenu(){
         
-         super("\nPick your character. "
-                               + "G for a girl or B for a boy."
-                                    +"\n                                        "
-                                    +"\n      ,-,                n_             "
-                                    +"\n     ((\"))              (\")           "
-                                    +"\n    ~~/ \\~~            --|--           "
-                                    +"\n     /___\\               :             "
-                                    +"\n     _| |_             _/ \\_           ");
+         super("\nPick your character: G for a girl or     "
+               +"\n                     B for a boy.       "
+               +"\n                                        "
+               +"\n      ,-,                n_             "
+               +"\n     ((\"))              (\")           "
+               +"\n    ~~/ \\~~            --|--           "
+               +"\n     /___\\               :             "
+               +"\n     _| |_             _/ \\_           ");
     }
 
     @Override
     public boolean doAction(String value) {
-        String character = GameControl.createCharacter(value);
-        if (character == null){
-           System.out.println("Try again");
-           return false;
+        String character = this.getInput();
+        if (character.toUpperCase().equals("B") || character.toUpperCase().equals("G")){
+           System.out.println("Yay!");
+           return true;
         }
-        System.out.println("congratulations" + character);
-        return true;
+//        else if (character.toUpperCase().equals("G")){
+//           System.out.println("Yay!");
+//           return true;
+//        }
+        else{
+            System.out.println("Try again");
+          
+        }
+          return false;
     }
+    private void displayNextView(Player player) {
+            
+            
+        //display a custom welcome message
+        System.out.println("   \n***********************************************"
+                            + "\n Welcome to the game " + player.getName()
+                            + "\n We hope you have a lot of fun!"
+                            + "\n***********************************************"
+                            );
+        //create mainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        //display the main menu view
+        mainMenuView.display();
+        }  
 }
     
     

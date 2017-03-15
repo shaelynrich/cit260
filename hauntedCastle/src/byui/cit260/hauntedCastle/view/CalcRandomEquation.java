@@ -32,7 +32,8 @@ public class CalcRandomEquation extends View{
         randomY = rnd.nextInt(16);
         randomZ = rnd.nextInt(16);
 
-       return "\n*******************************************************************************"
+       return 
+         "\n******************************************************************************"
        + "\n*                                                                            *"
        + "\n* Three random numbers will be generated in the form of a math equation.     *"
        + "\n* For example, x + (y * z)                                                   *"
