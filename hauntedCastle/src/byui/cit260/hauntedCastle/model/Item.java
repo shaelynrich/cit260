@@ -6,6 +6,7 @@
 package byui.cit260.hauntedCastle.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,12 +19,11 @@ public class Item implements Serializable{
     private double requiredAmount;
     private String name;
     private String description;
+    public ArrayList<Item> items = new ArrayList<>(); 
 
     public Item() {
     }
     
-    
-
     public String getInventoryType() {
         return inventoryType;
     }
@@ -62,6 +62,14 @@ public class Item implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 
     @Override

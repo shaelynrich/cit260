@@ -36,7 +36,7 @@ public class GameMenuView extends View{
         
         switch (choice){
             case "V": //view map
-                this.viewMap();
+                this.displayMap();
                 break;
             case "I": //view inventory items
                 this.viewInventory();
@@ -56,8 +56,8 @@ public class GameMenuView extends View{
         return false;
     }
     
-    private void viewMap() {
-        System.out.println("\n*** viewMap function called ***");
+    private void displayMap() {
+        System.out.println("\n*** displayMap function called ***");
     }
     private void viewInventory() {
         System.out.println("\n*** viewInventory function called ***");

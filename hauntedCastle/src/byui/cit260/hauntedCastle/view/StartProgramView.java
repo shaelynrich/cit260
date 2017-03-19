@@ -79,14 +79,12 @@ public class StartProgramView extends View{
         
         CharacterMenu CharacterView = new CharacterMenu();
         this.displayNextView(player);
-        //this.displayNextView(player);
+        this.displayNextView(player);
         return true; //success
     }
 
      private void displayNextView(Player player) {
-            
-            
-       
+      
         //create mainMenuView object
         CharacterMenu BoyAndGirl = new CharacterMenu();
         

@@ -28,29 +28,29 @@ public class CharacterMenu extends View{
                +"\n     _| |_             _/ \\_           ");
     }
 
-    @Override
+@Override
     public boolean doAction(String value) {
-        String character = this.getInput();
-        if (character.toUpperCase().equals("B") || character.toUpperCase().equals("G")){
-           System.out.println("Yay!");
-           return true;
+        value = value.toUpperCase(); //convert choice to upper case
+        
+        switch (value){
+            case "G": //show how to play
+                this.displayNextView();
+                break;
+            case "B": //return to where they just were
+                this.displayNextView();
+                break;
+            default:
+                //System.out.println("\n*** Invalid selection *** Try Again");
+                this.displayNextView();
         }
-//        else if (character.toUpperCase().equals("G")){
-//           System.out.println("Yay!");
-//           return true;
-//        }
-        else{
-            System.out.println("Try again");
-          
-        }
-          return false;
+        return false;
     }
-    private void displayNextView(Player player) {
+    private void displayNextView() {
             
             
         //display a custom welcome message
         System.out.println("   \n***********************************************"
-                            + "\n Welcome to the game " + player.getName()
+                            + "\n Welcome to the game "
                             + "\n We hope you have a lot of fun!"
                             + "\n***********************************************"
                             );
@@ -60,10 +60,25 @@ public class CharacterMenu extends View{
         //display the main menu view
         mainMenuView.display();
         }  
+
+    private void girlNextView() {
+System.out.println(   "\n***********************************************************************"
+                            + "\n* How to play the game:                                               *"
+                            + "\n*                                                                     *"
+                            + "\n* The game will have challenges that you need to complete.            *"
+                            + "\n* Some will require doing math, others will require exploring.        *"
+                            + "\n* To give the commands, just follow the prompting in the screen.      *"
+                            + "\n***********************************************************************"
+                             );    }
+
+    private void boyNextView() {
+System.out.println(
+         "\n**********************************************************************"
+       + "\n*                                                                    *"
+       + "\n* To win the game you must retrieve the key and unlock the gate.     *"
+       + "\n* In order to do this, each challenge must be completed successfully.*"
+       + "\n* Beware of the mad scientist.                                       *"
+       + "\n* Good luck!                                                         *"
+       + "\n**********************************************************************"        
+        );    }
 }
-    
-    
-  
-    
-    
-    

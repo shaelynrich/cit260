@@ -18,11 +18,36 @@ public class Map implements Serializable{
     private double rowCount;
     private double columnCount;
     private String history;
+    private Location [] [] locations;
 
     public Map() {
     }
     
-    
+    public Map(int rowCount, int columnCount){
+        if (rowCount < 1 || columnCount < 1) {
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
+        
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        
+        //create 2-D array for Location objects
+        this.locations = new Location[rowCount][columnCount];
+        
+        for (int row = 0; row < rowCount; row++){
+            for(int column = 0; column < columnCount; column++){
+                //create and initialize new Location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                //location.setVisited(false);
+                
+                //assign the Location object to the current position in array
+                locations[row][column] = location;
+            }
+        }
+    }
 
     public double getRowCount() {
         return rowCount;
@@ -46,6 +71,14 @@ public class Map implements Serializable{
 
     public void setHistory(String history) {
         this.history = history;
+    }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
     @Override

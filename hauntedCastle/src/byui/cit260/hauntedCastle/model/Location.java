@@ -6,6 +6,7 @@
 package byui.cit260.hauntedCastle.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,9 @@ public class Location implements Serializable {
     public double column;
     public double visited;
     public double amountRemaining;
+    public Character character;
+    public Scene scene;
+    public ArrayList<Item> items = new ArrayList<>(); 
 
     public Location() {
     }
@@ -50,6 +54,30 @@ public class Location implements Serializable {
 
     public void setAmountRemaining(double amountRemaining) {
         this.amountRemaining = amountRemaining;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 
     @Override

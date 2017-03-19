@@ -16,11 +16,11 @@ public class Scene implements Serializable{
     public String description;
     public String displaySymbol;
     public String typeOfScene;
+    public Questions [] questionList;
 
     public Scene() {
     }
 
-    
     public String getDescription() {
         return description;
     }
@@ -43,6 +43,14 @@ public class Scene implements Serializable{
 
     public void setTypeOfScene(String typeOfScene) {
         this.typeOfScene = typeOfScene;
+    }
+
+    public Questions[] getQuestionList() {
+        return questionList;
+    }
+
+    public void setQuestionList(Questions[] questionList) {
+        this.questionList = questionList;
     }
 
     @Override

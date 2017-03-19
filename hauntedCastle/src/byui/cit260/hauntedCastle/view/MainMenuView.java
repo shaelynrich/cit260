@@ -6,6 +6,8 @@
 package byui.cit260.hauntedCastle.view;
 
 import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
+import byui.cit260.hauntedCastle.control.GameControl;
+import hauntedcastle.HauntedCastle;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -68,7 +70,7 @@ public class MainMenuView extends View{
     
     private void startNewGame() {
         //create a new game
-        //GameControl.createNewGame(HauntedCastle.getPlayer());
+        GameControl.createNewGame(HauntedCastle.getPlayer());
         
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
