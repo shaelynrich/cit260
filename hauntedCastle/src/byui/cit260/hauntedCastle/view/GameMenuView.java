@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package byui.cit260.hauntedCastle.view;
+import byui.cit260.hauntedCastle.model.Location;
+import byui.cit260.hauntedCastle.model.Map;
 import java.util.Scanner;
 /**
  *
@@ -56,9 +58,27 @@ public class GameMenuView extends View{
         return false;
     }
     
-    private void displayMap() {
-        System.out.println("\n*** displayMap function called ***");
+    private void displayMap() { 
+        Map map = new Map(5, 5);
+        Location[][] locations = map.getLocations();
+System.out.println("\nHaunted Castle");
+System.out.println("\n---1-----2-----3-----4-----5--");
+// FOR every row in map
+for (int i=0; i<locations.length; i++){
+    System.out.println("\n------------------------------");
+    // FOR every column in row
+    for(int j=0; j<locations[i].length; j++){
+        if(locations[i][j].getVisited() == 1){
+               String symbol = locations[i][j].getScene().getDisplaySymbol();
+               System.out.print(symbol + " | ");
+        }
+        else {
+               System.out.print("| ?? |");            
+        }
     }
+}
+}
+    
     private void viewInventory() {
         System.out.println("\n*** viewInventory function called ***");
     }
