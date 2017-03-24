@@ -18,6 +18,7 @@ import hauntedcastle.HauntedCastle;
  */
 public class GameControl {
     
+    
     public static void createNewGame(Player player){
 Game game = new Game(); //create the new game
 HauntedCastle.setCurrentGame(game); //save in Haunted Castle
