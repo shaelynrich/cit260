@@ -5,10 +5,13 @@
  */
 package byui.cit260.hauntedCastle.control;
 
+import byui.cit260.hauntedCastle.exceptions.MapControlException;
 import byui.cit260.hauntedCastle.model.Location;
 import byui.cit260.hauntedCastle.model.Map;
 import byui.cit260.hauntedCastle.model.Scene;
 import byui.cit260.hauntedCastle.model.SceneType;
+import hauntedcastle.HauntedCastle;
+import java.awt.Point;
 
 /**
  *
@@ -16,7 +19,8 @@ import byui.cit260.hauntedCastle.model.SceneType;
  */
 public class MapControl {
 
-    public static Map createMap() {
+    public static Map createMap() 
+                    throws MapControlException {
         //create the map
         Map map = new Map(5, 5);
 
@@ -106,45 +110,60 @@ public class MapControl {
         return scenes;
     }
     
-    private static void assignScenesToLocations (Map map, Scene[] scenes){
+    private static void assignScenesToLocations (Map map, Scene[] scenes)
+                                    throws MapControlException {
+        
+        if (map == null || scenes == null){
+            throw new MapControlException("Map or scenes does not exist.");
+        }
+      
         Location[][] locations = map.getLocations();
         
-        //start point
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);        
         locations[0][1].setScene(scenes[SceneType.portal.ordinal()]);
         locations[0][2].setScene(scenes[SceneType.mouse.ordinal()]);
         locations[0][3].setScene(scenes[SceneType.complexEquations1.ordinal()]);
         locations[0][4].setScene(scenes[SceneType.complexEquations2.ordinal()]);
-     //   locations[0][5].setScene(scenes[SceneType.complexEquations3.ordinal()]);
         locations[1][0].setScene(scenes[SceneType.challenge1.ordinal()]);
         locations[1][1].setScene(scenes[SceneType.challenge2.ordinal()]);
         locations[1][2].setScene(scenes[SceneType.challenge3.ordinal()]);
         locations[1][3].setScene(scenes[SceneType.portal.ordinal()]);
         locations[1][4].setScene(scenes[SceneType.mouse.ordinal()]);
-    //    locations[1][5].setScene(scenes[SceneType.complexEquations1.ordinal()]);
         locations[2][0].setScene(scenes[SceneType.complexEquations2.ordinal()]);
         locations[2][1].setScene(scenes[SceneType.complexEquations3.ordinal()]);
         locations[2][2].setScene(scenes[SceneType.challenge1.ordinal()]);
         locations[2][3].setScene(scenes[SceneType.challenge2.ordinal()]);
         locations[2][4].setScene(scenes[SceneType.challenge3.ordinal()]);
-    //    locations[2][5].setScene(scenes[SceneType.portal.ordinal()]);
         locations[3][0].setScene(scenes[SceneType.mouse.ordinal()]);
         locations[3][1].setScene(scenes[SceneType.challenge1.ordinal()]);
         locations[3][2].setScene(scenes[SceneType.challenge2.ordinal()]);
         locations[3][3].setScene(scenes[SceneType.challenge3.ordinal()]);
         locations[3][4].setScene(scenes[SceneType.mouse.ordinal()]);
-   //     locations[3][5].setScene(scenes[SceneType.portal.ordinal()]);
         locations[4][0].setScene(scenes[SceneType.complexEquations1.ordinal()]);
         locations[4][1].setScene(scenes[SceneType.complexEquations2.ordinal()]);
         locations[4][2].setScene(scenes[SceneType.complexEquations3.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.challenge1.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.challenge2.ordinal()]);
-   //     locations[4][5].setScene(scenes[SceneType.challenge3.ordinal()]);
-//        locations[5][0].setScene(scenes[SceneType.mouse.ordinal()]);
-//        locations[5][1].setScene(scenes[SceneType.portal.ordinal()]);
-//        locations[5][2].setScene(scenes[SceneType.mouse.ordinal()]);
-//        locations[5][3].setScene(scenes[SceneType.portal.ordinal()]);
-//        locations[5][4].setScene(scenes[SceneType.challenge1.ordinal()]);
-//        locations[5][5].setScene(scenes[SceneType.finish.ordinal()]);
-    }
+       }
+    
+    public static void moveCharacterToLocation(Character character, Point coordinates)
+                                throws MapControlException {
+        
+        if (character == null || coordinates == null){
+            throw new MapControlException("Character or coordinates does not exist.");
+        }
+        
+        Map map = HauntedCastle.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if (newRow < 0 || newRow >= map.getRowCount() ||
+            newColumn < 0 || newColumn >= map.getColumnCount()){
+            throw new MapControlException("Can not move actor to location "
+                                            + coordinates.x + ", " + coordinates.y
+                                            + " because that location is outside "
+                                            + " the bounds of the map.");
+        }
+     
+}
 }

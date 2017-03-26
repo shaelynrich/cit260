@@ -47,8 +47,14 @@ public class CalcRandomEquation extends View{
     
     @Override
     public boolean doAction(String userAnswer) {
-        
-       double answer = Double.parseDouble(userAnswer);
+       
+       double answer = 0;
+       try {
+            answer = Double.parseDouble(userAnswer);
+       } catch (NumberFormatException nf){
+           System.out.println("\nYou must enter a valid number."
+                                + " Try again or enter Q to quit.");
+       }
        boolean correct = ComplexEquationsControl.calcRandomEquation(randomX, randomY, randomZ, answer);
        if (!correct) {
            System.out.println("\n*Wrong answer. Please try again.");

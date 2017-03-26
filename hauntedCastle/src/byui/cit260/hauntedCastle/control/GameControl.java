@@ -5,6 +5,7 @@
  */
 package byui.cit260.hauntedCastle.control;
 
+import byui.cit260.hauntedCastle.exceptions.MapControlException;
 import byui.cit260.hauntedCastle.model.Game;
 import byui.cit260.hauntedCastle.model.Item;
 import byui.cit260.hauntedCastle.model.ItemList;
@@ -19,7 +20,8 @@ import hauntedcastle.HauntedCastle;
 public class GameControl {
     
     
-    public static void createNewGame(Player player){
+    public static void createNewGame(Player player)
+                            throws MapControlException {
 Game game = new Game(); //create the new game
 HauntedCastle.setCurrentGame(game); //save in Haunted Castle
 
