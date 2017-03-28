@@ -6,6 +6,9 @@
 package byui.cit260.hauntedCastle.view;
 
 import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
+import byui.cit260.hauntedCastle.exceptions.ComplexEquationsControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,7 +50,12 @@ public class Challenge1 extends View{
     String answer4 = this.getInput();
     this.displayMessage = question5;
     String answer5 = this.getInput();
-    boolean correct = ComplexEquationsControl.calcCreateQuestions(answer1, answer2, answer3, answer4, answer5);
+    boolean correct = false;
+        try {
+            correct = ComplexEquationsControl.calcCreateQuestions(answer1, answer2, answer3, answer4, answer5);
+        } catch (ComplexEquationsControlException ex) {
+            Logger.getLogger(Challenge1.class.getName()).log(Level.SEVERE, null, ex);
+        }
     if (!correct){
         System.out.println("\n*That is incorrect. Please try again.");
            this.displayMessage = this.createQuestions();

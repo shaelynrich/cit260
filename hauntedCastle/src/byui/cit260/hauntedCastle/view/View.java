@@ -5,7 +5,13 @@
  */
 package byui.cit260.hauntedCastle.view;
 
+import hauntedcastle.HauntedCastle;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +19,9 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = HauntedCastle.getInFile();
+    protected final PrintWriter console = HauntedCastle.getOutFile();
     
     public View(){
         
@@ -38,14 +47,19 @@ public abstract class View implements ViewInterface {
     
      @Override
      public String getInput(){
-        Scanner keyboard = new Scanner(System.in); //get inflie for keyboard
+        
+        //get inflie for keyboard
         String value = null; //value to be returned
         boolean valid = false; //initialize to not valid
         
         while (!valid) { //loop while an invalid value is enter
             System.out.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine(); //get next line typed on keyboard
+            try {
+                value = this.keyboard.readLine(); //get next line typed on keyboard
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
             value = value.trim(); //trim off leading and trailing blanks
             
             if (value.length() < 1) { //value is blank

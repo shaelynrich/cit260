@@ -7,10 +7,13 @@ package byui.cit260.hauntedCastle.view;
 
 import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
 import byui.cit260.hauntedCastle.control.GameControl;
+import byui.cit260.hauntedCastle.exceptions.ComplexEquationsControlException;
 import byui.cit260.hauntedCastle.exceptions.MapControlException;
 import hauntedcastle.HauntedCastle;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -55,14 +58,21 @@ public class MainMenuView extends View{
             case "S": //save the current game
                 this.saveGame();
                 break;
-            case "C": //calc random
+            case "C": 
                 this.calcRandomEquation();
                 break;
             case "A": //calc random
                 this.challenge1();
                 break; 
-            case "V": //save the current game
-                return this.calcOfPotion();    
+            case "V": 
+         {
+             try {
+                 this.calcOfPotion();
+             } catch (ComplexEquationsControlException ex) {
+                 System.out.println(ex.getMessage());
+             }
+         }
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try Again");
         }
@@ -98,16 +108,26 @@ public class MainMenuView extends View{
         helpMenu.display();
     }
     private void calcRandomEquation() {
+        
         CalcRandomEquation calcRandomEquation = new CalcRandomEquation();
         //display the help menu
         calcRandomEquation.display();
-    }
+        
+        try {
+            ComplexEquationsControl.calcRandomEquation(0,0,0,0);
+        } catch (ComplexEquationsControlException cece) {
+            System.out.println(cece.getMessage());
+            return;
+        }  }
+    
+    
     private void challenge1() {
+        
         Challenge1 challenge1 = new Challenge1();
         challenge1.display();
     }    
 
-    private boolean calcOfPotion() {
+    private boolean calcOfPotion() throws ComplexEquationsControlException {
         
         // generate random values for radius and height
         Random randomGenerator = new Random();

@@ -5,13 +5,21 @@
  */
 package byui.cit260.hauntedCastle.control;
 
+import byui.cit260.hauntedCastle.exceptions.ComplexEquationsControlException;
+
+
 /**
  *
  * @author Shaelyn
  */
 public class ComplexEquationsControl {
 
-    public static boolean calcRandomEquation(double x, double y, double z, double userAnswer) {
+    public static boolean calcRandomEquation(double x, double y, double z, double userAnswer) 
+                                            throws ComplexEquationsControlException {
+        if (x == 0 || y == 0 || z == 0 || userAnswer == 0){
+            throw new ComplexEquationsControlException("Please enter a number.");
+        }
+        
         if (x < 0 || x > 15) {
             return false;
         }
@@ -33,7 +41,11 @@ public class ComplexEquationsControl {
         return false;
     }
 
-    public static double calcVolumeOfPotion(int radius, int height) {
+    public static double calcVolumeOfPotion(int radius, int height) 
+                                        throws ComplexEquationsControlException {
+        if (radius == 0 || height == 0){
+            throw new ComplexEquationsControlException("Please enter a number.");
+        }
         if (radius < 0 || radius > 10) {
             return -1;
         }
@@ -50,8 +62,11 @@ public class ComplexEquationsControl {
 
     }
 
-    public int calcDiceRollAverage(int[] listOfNumbers) {
-
+    public int calcDiceRollAverage(int[] listOfNumbers) 
+                    throws ComplexEquationsControlException {
+         if (listOfNumbers == null){
+            throw new ComplexEquationsControlException("Please enter a number.");
+        }
         int total = 0;
 
         if (listOfNumbers.length > 10) {
@@ -70,7 +85,11 @@ public class ComplexEquationsControl {
 
     }
     
-    public static boolean calcCreateQuestions (String answer1, String answer2, String answer3, String answer4, String answer5){
+    public static boolean calcCreateQuestions (String answer1, String answer2, String answer3, String answer4, String answer5)
+                                            throws ComplexEquationsControlException {
+        if (answer1 == null || answer2 == null || answer3 == null || answer4 == null || answer5 == null){
+            throw new ComplexEquationsControlException("Please enter a valid answer.");
+        }
         if ("True".equals(answer1)){
             return false;
         }
