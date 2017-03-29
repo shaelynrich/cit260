@@ -5,6 +5,7 @@
  */
 package byui.cit260.hauntedCastle.control;
 
+import byui.cit260.hauntedCastle.exceptions.GameControlException;
 import byui.cit260.hauntedCastle.exceptions.MapControlException;
 import byui.cit260.hauntedCastle.model.Game;
 import byui.cit260.hauntedCastle.model.Item;
@@ -12,6 +13,10 @@ import byui.cit260.hauntedCastle.model.ItemList;
 import byui.cit260.hauntedCastle.model.Map;
 import byui.cit260.hauntedCastle.model.Player;
 import hauntedcastle.HauntedCastle;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -75,7 +80,7 @@ game.setMap(map); //save map in game
     }
     
     public static void createHelpMenu(Player player){
-        System.out.println("\n*** createHelpMenu stub function called ***");
+        HauntedCastle.outFile.println("\n*** createHelpMenu stub function called ***");
 
     }
     public static Player createPlayer(String name) {
@@ -94,5 +99,35 @@ game.setMap(map); //save map in game
         String girl = "You picked a girl character";
         return girl;
     }
+
+    public static void saveGame(Game currentGame, String filePath) 
+                            throws GameControlException{
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame); //write the game object out to file
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) 
+                        throws GameControlException{
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject(); //read the game object from file
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        //close the output file
+        HauntedCastle.setCurrentGame(game); //save in HauntedCastle
+    }
     
 }
+    
+

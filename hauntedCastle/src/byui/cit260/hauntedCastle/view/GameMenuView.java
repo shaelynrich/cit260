@@ -60,7 +60,7 @@ public class GameMenuView extends View{
                 this.listSortedItems();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                this.console.println("\n*** Invalid selection *** Try Again");
         }
         return false;
     }
@@ -68,35 +68,35 @@ public class GameMenuView extends View{
     private void displayMap() { 
         Map map = new Map(5, 5);
         Location[][] locations = map.getLocations();
-System.out.println("\nHaunted Castle");
-System.out.println("\n---1-----2-----3-----4-----5--");
+this.console.println("\nHaunted Castle");
+this.console.println("\n---1-----2-----3-----4-----5--");
 // FOR every row in map
 for (int i=0; i<locations.length; i++){
-    System.out.println("\n------------------------------");
+    this.console.println("\n------------------------------");
     // FOR every column in row
     for(int j=0; j<locations[i].length; j++){
         if(locations[i][j].getVisited() == 1){
                String symbol = locations[i][j].getScene().getDisplaySymbol();
-               System.out.print(symbol + " | ");
+               this.console.print(symbol + " | ");
         }
         else {
-               System.out.print("| ?? |");            
+               this.console.print("| ?? |");            
         }
     }
 }
 }
     
     private void viewInventory() {
-        System.out.println("\n*** viewInventory function called ***");
+        this.console.println("\n*** viewInventory function called ***");
     }
     private void moveLocation() {
-        System.out.println("\n*** moveLocation function called ***");
+        this.console.println("\n*** moveLocation function called ***");
     }
     private void harvestResource() {
-        System.out.println("\n*** harvestResource function called ***");
+        this.console.println("\n*** harvestResource function called ***");
     }
     private void useResource() {
-        System.out.println("\n*** useResource function called ***");
+        this.console.println("\n*** useResource function called ***");
     }
     private void listSortedItems() {
         ResourceControl resourceControl = new ResourceControl();

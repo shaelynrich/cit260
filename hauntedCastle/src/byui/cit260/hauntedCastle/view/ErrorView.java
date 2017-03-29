@@ -10,5 +10,7 @@ package byui.cit260.hauntedCastle.view;
  * @author Shaelyn
  */
 public class ErrorView {
-    
+
+    static void display(String mainMenuView, String message) {
+System.out.println("error");    }
 }

@@ -69,12 +69,12 @@ public class MainMenuView extends View{
              try {
                  this.calcOfPotion();
              } catch (ComplexEquationsControlException ex) {
-                 System.out.println(ex.getMessage());
+                 this.console.println(ex.getMessage());
              }
          }
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                this.console.println("\n*** Invalid selection *** Try Again");
         }
         return false;
     }
@@ -84,7 +84,7 @@ public class MainMenuView extends View{
         try {
             GameControl.createNewGame(HauntedCastle.getPlayer());
         } catch (MapControlException mce) {
-            System.out.println(mce.getMessage());
+            this.console.println(mce.getMessage());
             return;
         }
         
@@ -95,11 +95,35 @@ public class MainMenuView extends View{
     }
     
     private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+        //prompt for and get the name of the file to save the game in
+        this.console.println("\n\n Enter the file path for the file where the game is to be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            //start a saved game
+            GameControl.getSavedGame(filePath);
+        } catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
     private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+        //prompt for and get the name of the file to save the game in
+        
+        this.console.println("\n\nEnter the file path for where the game is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the specified file
+            GameControl.saveGame(HauntedCastle.getCurrentGame(), filePath);
+        } catch (Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
+    
     private void displayHelpMenu() {
        
         //create the help menu
@@ -116,7 +140,7 @@ public class MainMenuView extends View{
         try {
             ComplexEquationsControl.calcRandomEquation(0,0,0,0);
         } catch (ComplexEquationsControlException cece) {
-            System.out.println(cece.getMessage());
+            this.console.println(cece.getMessage());
             return;
         }  }
     
@@ -141,11 +165,11 @@ public class MainMenuView extends View{
         
         // if result is invalid
         if (result <0){
-            System.out.println("It seems your potion disappeared! You’ll have to try it again!");
+            this.console.println("It seems your potion disappeared! You’ll have to try it again!");
             return false;
         }
         
-        System.out.println("good job" + "The volume of the potion is " + result);
+        this.console.println("good job" + "The volume of the potion is " + result);
          return true;  
     }
  }

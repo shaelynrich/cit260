@@ -33,7 +33,7 @@ public class HauntedCastle {
     private static Game currentGame = null;
     private static Player player = null;
     
-    private static PrintWriter outFile = null;
+    public static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
 
     public static PrintWriter getOutFile() {
@@ -81,7 +81,7 @@ public class HauntedCastle {
             startProgramView.display(); 
             return;
         } catch (Throwable e){
-            System.out.println("Exception: " + e.toString() +
+            HauntedCastle.outFile.println("Exception: " + e.toString() +
                     "\nCause: " + e.getCause() +
                     "\nMessage: " + e.getMessage());
             e.printStackTrace();
@@ -94,7 +94,7 @@ public class HauntedCastle {
                 if (HauntedCastle.outFile != null)
                 HauntedCastle.outFile.close();
             } catch (IOException ex) {
-                System.out.println("Error closing files.");
+                HauntedCastle.outFile.println("Error closing files.");
                 return;
             }
         }

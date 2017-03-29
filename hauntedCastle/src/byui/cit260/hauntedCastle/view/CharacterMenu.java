@@ -40,7 +40,7 @@ public class CharacterMenu extends View{
                 this.displayNextView();
                 break;
             default:
-                //System.out.println("\n*** Invalid selection *** Try Again");
+                //this.console.println("\n*** Invalid selection *** Try Again");
                 this.displayNextView();
         }
         return false;
@@ -49,7 +49,7 @@ public class CharacterMenu extends View{
             
             
         //display a custom welcome message
-        System.out.println("   \n***********************************************"
+        this.console.println("   \n***********************************************"
                             + "\n Welcome to the game "
                             + "\n We hope you have a lot of fun!"
                             + "\n***********************************************"
@@ -62,7 +62,7 @@ public class CharacterMenu extends View{
         }  
 
     private void girlNextView() {
-System.out.println(   "\n***********************************************************************"
+this.console.println(   "\n***********************************************************************"
                             + "\n* How to play the game:                                               *"
                             + "\n*                                                                     *"
                             + "\n* The game will have challenges that you need to complete.            *"
@@ -72,7 +72,7 @@ System.out.println(   "\n*******************************************************
                              );    }
 
     private void boyNextView() {
-System.out.println(
+this.console.println(
          "\n**********************************************************************"
        + "\n*                                                                    *"
        + "\n* To win the game you must retrieve the key and unlock the gate.     *"

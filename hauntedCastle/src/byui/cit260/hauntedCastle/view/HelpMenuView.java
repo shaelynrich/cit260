@@ -36,13 +36,13 @@ public class HelpMenuView extends View{
                 this.goalOfTheGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try Again");
+                this.console.println("\n*** Invalid selection *** Try Again");
         }
         return false;
     }
     
     private void howToPlay() {
-        System.out.println(   "\n***********************************************************************"
+        this.console.println(   "\n***********************************************************************"
                             + "\n* How to play the game:                                               *"
                             + "\n*                                                                     *"
                             + "\n* The game will have challenges that you need to complete.            *"
@@ -52,7 +52,7 @@ public class HelpMenuView extends View{
                              );
     }
     private void goalOfTheGame () {
-         System.out.println(
+         this.console.println(
          "\n**********************************************************************"
        + "\n*                                                                    *"
        + "\n* To win the game you must retrieve the key and unlock the gate.     *"

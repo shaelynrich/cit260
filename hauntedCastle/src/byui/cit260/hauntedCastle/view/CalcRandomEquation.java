@@ -8,6 +8,7 @@ package byui.cit260.hauntedCastle.view;
  *
  * @author Shaelyn
  */
+
 import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
 import byui.cit260.hauntedCastle.exceptions.ComplexEquationsControlException;
 import java.util.Random;
@@ -55,21 +56,21 @@ public class CalcRandomEquation extends View{
        try {
             answer = Double.parseDouble(userAnswer);
        } catch (NumberFormatException nf){
-           System.out.println("\nYou must enter a valid number."
+           this.console.println("\nYou must enter a valid number."
                                 + " Try again or enter Q to quit.");
        }
        boolean correct = false;
         try {
             correct = ComplexEquationsControl.calcRandomEquation(randomX, randomY, randomZ, answer);
         } catch (ComplexEquationsControlException ex) {
-            System.out.println("Error: " + ex.getMessage()); 
+            this.console.println("Error: " + ex.getMessage()); 
         }
        if (!correct) {
-           System.out.println("\n*Wrong answer. Please try again.");
+           this.console.println("\n*Wrong answer. Please try again.");
            this.displayMessage = this.createEquation();
            return false;
        }
-       System.out.println("\n*You answered correctly!");
+       this.console.println("\n*You answered correctly!");
        return true;
     }
 }

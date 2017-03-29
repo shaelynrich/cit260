@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package byui.cit260.hauntedCastle.control;
+import byui.cit260.hauntedCastle.exceptions.ComplexEquationsControlException;
+import hauntedcastle.HauntedCastle;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -36,8 +38,8 @@ public class ComplexEquationsControlTest {
      * Test of calcRandomEquation method, of class ComplexEquationsControl.
      */
     @Test
-    public void testCalcRandomEquation() {
-        System.out.println("Test Case 1a");
+    public void testCalcRandomEquation() throws ComplexEquationsControlException {
+        HauntedCastle.outFile.println("Test Case 1a");
         double x = 8;
         double y = 12;
         double z = 2;
@@ -46,7 +48,7 @@ public class ComplexEquationsControlTest {
         boolean expResult = true;
         boolean result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 1b");
+        HauntedCastle.outFile.println("Test Case 1b");
         x = 8;
         y = 12;
         z = 2;
@@ -54,7 +56,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 2");
+        HauntedCastle.outFile.println("Test Case 2");
         x = -1;
         y = 7;
         z = 1;
@@ -62,7 +64,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 3");
+        HauntedCastle.outFile.println("Test Case 3");
         x = 16;
         y = 5;
         z = 1;
@@ -70,7 +72,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 4");
+        HauntedCastle.outFile.println("Test Case 4");
         x = 5;
         y = -1;
         z = 8;
@@ -78,7 +80,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 5");
+        HauntedCastle.outFile.println("Test Case 5");
         x = 15;
         y = 16;
         z = 15;
@@ -86,7 +88,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 6");
+        HauntedCastle.outFile.println("Test Case 6");
         x = 1;
         y = 10;
         z = -1;
@@ -94,7 +96,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 7");
+        HauntedCastle.outFile.println("Test Case 7");
         x = 1;
         y = 12;
         z = 18;
@@ -102,7 +104,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 8");
+        HauntedCastle.outFile.println("Test Case 8");
         x = 8;
         y = 12;
         z = 2;
@@ -110,7 +112,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 9");
+        HauntedCastle.outFile.println("Test Case 9");
         x = 0;
         y = 7;
         z = 1;
@@ -118,7 +120,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 10");
+        HauntedCastle.outFile.println("Test Case 10");
         x = 15;
         y = 5;
         z = 1;
@@ -126,7 +128,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 11");
+        HauntedCastle.outFile.println("Test Case 11");
         x = 5;
         y = 0;
         z = 8;
@@ -134,7 +136,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 12");
+        HauntedCastle.outFile.println("Test Case 12");
         x = 15;
         y = 15;
         z = 15;
@@ -142,7 +144,7 @@ public class ComplexEquationsControlTest {
         expResult = true;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 13");
+        HauntedCastle.outFile.println("Test Case 13");
         x = 1;
         y = 10;
         z = 0;
@@ -150,7 +152,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 14");
+        HauntedCastle.outFile.println("Test Case 14");
         x = 5;
         y = 4;
         z = 15;
@@ -158,7 +160,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 15");
+        HauntedCastle.outFile.println("Test Case 15");
         x = 5;
         y = 4;
         z = 3;
@@ -166,7 +168,7 @@ public class ComplexEquationsControlTest {
         expResult = false;
         result = instance.calcRandomEquation(x, y, z, userAnswer);
         assertEquals(expResult, result);
-        System.out.println("Test Case 16");
+        HauntedCastle.outFile.println("Test Case 16");
         x = 5;
         y = 4;
         z = 3;
@@ -180,56 +182,56 @@ public class ComplexEquationsControlTest {
      * Test of calcVolumeOfPotion method, of class ComplexEquationsControl.
      */
     @Test
-    public void testCalcVolumeOfPotion() {
-        System.out.println("test 1");
+    public void testCalcVolumeOfPotion() throws ComplexEquationsControlException {
+        HauntedCastle.outFile.println("test 1");
         int radius = 2;
         int height = 4;
 
         double expResult = 50;
         double result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result, 0.01);
-        System.out.println("test 2");
+        HauntedCastle.outFile.println("test 2");
         radius = 8;
         height = 2;
         expResult = -1;
         result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result, 0.01);
-        System.out.println("test 3");
+        HauntedCastle.outFile.println("test 3");
         radius = 23;
         height = 9;
         expResult = -1;
         
         result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result, 0.01);
-        System.out.println("test 4");
+        HauntedCastle.outFile.println("test 4");
         radius = 23;
         height = 0;
 
         expResult = -1;
         result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result,0.01);
-        System.out.println("test 5");
+        HauntedCastle.outFile.println("test 5");
         radius = 2;
         height = 10;
 
         expResult = -1;
         result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result, 0.01);
-        System.out.println("test 5");
+        HauntedCastle.outFile.println("test 5");
         radius = -7;
         height = 9;
       
         expResult = -1;
         result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result, 0.01);
-        System.out.println("test 6");
+        HauntedCastle.outFile.println("test 6");
         radius = 0;
         height = 12;
 
         expResult = -1;
         result = ComplexEquationsControl.calcVolumeOfPotion(radius, height);
         assertEquals(expResult, result, 0.01);
-        System.out.println("test 7");
+        HauntedCastle.outFile.println("test 7");
         radius = 13;
         height = 9;
 
@@ -241,45 +243,45 @@ public class ComplexEquationsControlTest {
      * Test of calcDiceRollAverage method, of class ComplexEquationsControl.
      */
     @Test
-    public void testCalcDiceRollAverage() {
-        System.out.println("calcDiceRollAverage test 1");
+    public void testCalcDiceRollAverage() throws ComplexEquationsControlException {
+        HauntedCastle.outFile.println("calcDiceRollAverage test 1");
         int[] listOfNumbers = {1, 2, 3, 4, 5, 6, 1, 2, 3, 4};
         ComplexEquationsControl instance = new ComplexEquationsControl();
         int expResult = 3;
         int result = instance.calcDiceRollAverage(listOfNumbers);
         assertEquals(expResult, result);
         
-        System.out.println("calcDiceRollAverage test 2");
+        HauntedCastle.outFile.println("calcDiceRollAverage test 2");
         int[] list2 = {0, 2, 3, 4, 5, 6, 1, 2, 3, 4};
         expResult = -1;
         result = instance.calcDiceRollAverage(list2);
         assertEquals(expResult, result);
         
-        System.out.println("calcDiceRollAverage test 3");
+        HauntedCastle.outFile.println("calcDiceRollAverage test 3");
         int[] list3 = {7, 2, 3, 4, 5, 6, 1, 2, 3, 4};
         expResult = -1;
         result = instance.calcDiceRollAverage(list3);
         assertEquals(expResult, result);
         
-        System.out.println("calcDiceRollAverage test 6");
+        HauntedCastle.outFile.println("calcDiceRollAverage test 6");
         int[] list6 = {0, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5};
         expResult = -1;
         result = instance.calcDiceRollAverage(list6);
         assertEquals(expResult, result);
         
-        System.out.println("calcDiceRollAverage test 7");
+        HauntedCastle.outFile.println("calcDiceRollAverage test 7");
         int[] list7 = {0, 2, 3, 4, 5, 6, 1, 2, 3};
         expResult = -1;
         result = instance.calcDiceRollAverage(list7);
         assertEquals(expResult, result);
        
-        System.out.println("calcDiceRollAverage test 4");
+        HauntedCastle.outFile.println("calcDiceRollAverage test 4");
         int[] list4 = {1, 6, 5, 4, 4, 5, 6, 1, 2, 3};
         expResult = 3;
         result = instance.calcDiceRollAverage(list4);
         assertEquals(expResult, result);
         
-        System.out.println("calcDiceRollAverage test 5");
+        HauntedCastle.outFile.println("calcDiceRollAverage test 5");
         int[] list5 = {6, 1, 6, 5, 5, 6, 1, 2, 3, 4};
         expResult = 3;
         result = instance.calcDiceRollAverage(list5);

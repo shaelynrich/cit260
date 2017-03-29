@@ -7,6 +7,7 @@ package byui.cit260.hauntedCastle.view;
 
 import byui.cit260.hauntedCastle.control.GameControl;
 import byui.cit260.hauntedCastle.model.Player;
+import hauntedcastle.HauntedCastle;
 import java.util.Scanner;
 
 /**
@@ -22,7 +23,7 @@ public class StartProgramView extends View{
 }
 
     private void displayBanner() {
-        System.out.println(
+        this.console.println(
         "\n*******************************************************************************"
        + "\n*                                                                            *"
        + "\n* You and your family have moved to a completely new area.                   *"
@@ -63,7 +64,7 @@ public class StartProgramView extends View{
     @Override
     public boolean doAction(String playersName) {
         if (playersName.length() <2){
-            System.out.println("\nInvalid players name: "
+            this.console.println("\nInvalid players name: "
                                 + "The name must be greater than one character in length");
             return false;
         }
@@ -72,7 +73,7 @@ public class StartProgramView extends View{
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null) { // if unsuccessfull
-            System.out.println("\nError creating the player.");
+            this.console.println("\nError creating the player.");
             return false;
         }
         //display next view

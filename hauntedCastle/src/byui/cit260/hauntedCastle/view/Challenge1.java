@@ -57,11 +57,11 @@ public class Challenge1 extends View{
             Logger.getLogger(Challenge1.class.getName()).log(Level.SEVERE, null, ex);
         }
     if (!correct){
-        System.out.println("\n*That is incorrect. Please try again.");
+        this.console.println("\n*That is incorrect. Please try again.");
            this.displayMessage = this.createQuestions();
            return false;
     }
-    System.out.println("\n*That is correct!");
+    this.console.println("\n*That is correct!");
        return true;
 }
 }

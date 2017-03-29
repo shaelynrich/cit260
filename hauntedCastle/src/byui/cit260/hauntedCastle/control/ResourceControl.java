@@ -6,6 +6,7 @@
 package byui.cit260.hauntedCastle.control;
 
 import byui.cit260.hauntedCastle.model.Item;
+import hauntedcastle.HauntedCastle;
 
 /**
  *
@@ -18,7 +19,7 @@ public class ResourceControl {
              String[ ] Item = {"sword", "potion", "key", "food", "magic"};
              sortStringBubble (Item);
              for ( int i = 0;  i < 5;  i++ )
-                System.out.println( Item [i] );
+                HauntedCastle.outFile.println( Item [i] );
       }
 
       public static void sortStringBubble( String x [] )

@@ -53,17 +53,17 @@ public abstract class View implements ViewInterface {
         boolean valid = false; //initialize to not valid
         
         while (!valid) { //loop while an invalid value is enter
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
             try {
                 value = this.keyboard.readLine(); //get next line typed on keyboard
             } catch (IOException ex) {
-                System.out.println("Error");
+                this.console.println("Error");
             }
             value = value.trim(); //trim off leading and trailing blanks
             
             if (value.length() < 1) { //value is blank
-                System.out.println("\nYou must enter a value");
+                this.console.println("\nYou must enter a value");
                 continue;
             }
             break; //end the loop
