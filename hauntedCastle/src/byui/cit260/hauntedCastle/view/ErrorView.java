@@ -13,4 +13,7 @@ public class ErrorView {
 
     static void display(String mainMenuView, String message) {
 System.out.println("error");    }
+
+    public static void display(String string) {
+System.out.println("error");    }
 }

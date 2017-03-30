@@ -9,7 +9,12 @@ import byui.cit260.hauntedCastle.control.ComplexEquationsControl;
 import byui.cit260.hauntedCastle.control.GameControl;
 import byui.cit260.hauntedCastle.exceptions.ComplexEquationsControlException;
 import byui.cit260.hauntedCastle.exceptions.MapControlException;
+import byui.cit260.hauntedCastle.model.Game;
+import byui.cit260.hauntedCastle.model.Item;
 import hauntedcastle.HauntedCastle;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -37,6 +42,7 @@ public class MainMenuView extends View{
                   + "\nV testPotionVolume                    |"
                   + "\nA challenge1                          |"
                   + "\nC CalcRandomEquation"
+                  + "\nM Print Report"
                   + "\n--------------------------------------");
     }
 
@@ -63,6 +69,9 @@ public class MainMenuView extends View{
                 break;
             case "A": //calc random
                 this.challenge1();
+                break; 
+            case "M": //display report
+                this.displayReport();
                 break; 
             case "V": 
          {
@@ -117,6 +126,7 @@ public class MainMenuView extends View{
         String filePath = this.getInput();
         
         try {
+            //Game game = new Game();
             //save the game to the specified file
             GameControl.saveGame(HauntedCastle.getCurrentGame(), filePath);
         } catch (Exception ex){
@@ -172,4 +182,23 @@ public class MainMenuView extends View{
         this.console.println("good job" + "The volume of the potion is " + result);
          return true;  
     }
+
+            
+    private void displayReport() {
+        this.console.println("\n\n Enter the file path for where the report is to be printed.");
+        String filePath = this.getInput();    
+        
+        try{
+            //display report
+            GameControl.getReport(filePath);
+        } catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        //display the inventory report
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    
+    }
+        
+    
  }

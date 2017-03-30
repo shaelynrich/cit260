@@ -12,11 +12,16 @@ import byui.cit260.hauntedCastle.model.Item;
 import byui.cit260.hauntedCastle.model.ItemList;
 import byui.cit260.hauntedCastle.model.Map;
 import byui.cit260.hauntedCastle.model.Player;
+import byui.cit260.hauntedCastle.view.ErrorView;
 import hauntedcastle.HauntedCastle;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import static jdk.nashorn.tools.ShellFunctions.input;
 
 /**
  *
@@ -128,6 +133,23 @@ game.setMap(map); //save map in game
         HauntedCastle.setCurrentGame(game); //save in HauntedCastle
     }
     
+private static void getReport(ArrayList<Item> inventoryItems,
+                                String filePath) 
+                    throws GameControlException{
+        
+        try (PrintWriter out = new PrintWriter(filePath)){
+            //print title and column headings
+            out.println("\n\n Inventory Report");
+            out.printf("%n%-20s%10s%10s", "Description", "Quantity");
+            out.printf("%n%-20s%10s%10s", "-----------", "--------");
+            //print the description and quantity
+            for(Item item : inventoryItems){
+                out.printf("%n%-20s%7d%13.2f", item.getDescription()
+                                             , item.getQuantityInStock());
+            }
+            
+        } catch (IOException ex){
+            ErrorView.display("I/O Error: " + ex.getMessage());
+        }
 }
-    
-
+}
