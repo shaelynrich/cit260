@@ -133,7 +133,7 @@ game.setMap(map); //save map in game
         HauntedCastle.setCurrentGame(game); //save in HauntedCastle
     }
     
-private static void getReport(ArrayList<Item> inventoryItems,
+public static void getReport(ArrayList<Item> inventoryItems,
                                 String filePath) 
                     throws GameControlException{
         
