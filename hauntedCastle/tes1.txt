@@ -1,0 +1,11 @@
+
+
+ Inventory Report
+
+Description           Quantity
+-----------           --------
+Magic                  0.00
+null                   0.00
+null                   0.00
+null                   0.00
+null                   0.00

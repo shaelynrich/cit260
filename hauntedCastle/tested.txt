@@ -1,0 +1,11 @@
+
+
+ Inventory Report
+
+Description           Quantity
+-----------           --------
+Sword                  0.00
+Potion                 0.00
+Key                    0.00
+Food                   0.00
+Magic                  0.00

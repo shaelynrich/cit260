@@ -53,31 +53,31 @@ game.setMap(map); //save map in game
         Item sword = new Item();
         sword.setDescription("Sword");
         sword.setQuantityInStock(0);
-        sword.setRequiredAmount(0);
+        sword.setRequiredAmount(2);
         inventory[ItemList.sword.ordinal()] = sword;
         
         Item potion = new Item();
-        sword.setDescription("Potion");
-        sword.setQuantityInStock(0);
-        sword.setRequiredAmount(0);
+        potion.setDescription("Potion");
+        potion.setQuantityInStock(0);
+        potion.setRequiredAmount(4);
         inventory[ItemList.potion.ordinal()] = potion;
         
         Item key = new Item();
-        sword.setDescription("Key");
-        sword.setQuantityInStock(0);
-        sword.setRequiredAmount(0);
+        key.setDescription("Key");
+        key.setQuantityInStock(0);
+        key.setRequiredAmount(6);
         inventory[ItemList.key.ordinal()] = key;
         
         Item food = new Item();
-        sword.setDescription("Food");
-        sword.setQuantityInStock(0);
-        sword.setRequiredAmount(0);
+        food.setDescription("Food");
+        food.setQuantityInStock(0);
+        food.setRequiredAmount(1);
         inventory[ItemList.food.ordinal()] = food;
         
         Item magic = new Item();
-        sword.setDescription("Magic");
-        sword.setQuantityInStock(0);
-        sword.setRequiredAmount(0);
+        magic.setDescription("Magic");
+        magic.setQuantityInStock(0);
+        magic.setRequiredAmount(3);
         inventory[ItemList.magic.ordinal()] = magic;
         
         return inventory;
@@ -133,18 +133,19 @@ game.setMap(map); //save map in game
         HauntedCastle.setCurrentGame(game); //save in HauntedCastle
     }
     
-public static void getReport(ArrayList<Item> inventoryItems,
-                                String filePath) 
+public static void getReport(String filePath)
+                                
                     throws GameControlException{
+                    Item[] itemArray = HauntedCastle.getCurrentGame().getInventory();
         
         try (PrintWriter out = new PrintWriter(filePath)){
             //print title and column headings
             out.println("\n\n Inventory Report");
-            out.printf("%n%-20s%10s%10s", "Description", "Quantity");
-            out.printf("%n%-20s%10s%10s", "-----------", "--------");
+            out.printf("%n%-20s%10s", "Description", "Quantity");
+            out.printf("%n%-20s%10s", "-----------", "--------");
             //print the description and quantity
-            for(Item item : inventoryItems){
-                out.printf("%n%-20s%7d%13.2f", item.getDescription()
+            for(Item item : itemArray){
+                out.printf("%n%-20s%7.2f", item.getDescription()
                                              , item.getQuantityInStock());
             }
             

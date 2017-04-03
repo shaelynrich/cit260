@@ -190,7 +190,7 @@ public class MainMenuView extends View{
         
         try{
             //display report
-            GameControl.getReport(ArrayList<Item> inventoryItems, filePath);
+            GameControl.getReport(filePath);
         } catch(Exception ex){
             ErrorView.display("MainMenuView", ex.getMessage());
         }
