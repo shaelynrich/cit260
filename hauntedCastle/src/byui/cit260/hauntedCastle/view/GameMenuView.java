@@ -12,7 +12,7 @@ import byui.cit260.hauntedCastle.model.Location;
 import byui.cit260.hauntedCastle.model.Map;
 import java.util.Scanner;
 /**
- *
+ *    
  * @author Shaelyn
  */
 public class GameMenuView extends View{
