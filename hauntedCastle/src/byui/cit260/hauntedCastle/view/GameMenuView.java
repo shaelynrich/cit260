@@ -62,9 +62,9 @@ public class GameMenuView extends View{
                 //print list of sorted items
                 this.listSortedItems();
                 break;
-            case "E": //explore location
-                this.exploreLocation();
-                break;
+//            case "E": //explore location
+//                this.exploreLocation();
+//                break;
             default:
                 this.console.println("\n*** Invalid selection *** Try Again");
         }
@@ -109,8 +109,19 @@ for (int i=0; i<locations.length; i++){
         resourceControl.main();
        
     }
-    private void exploreLocation() {
-        //GameControl resourceControl = new ResourceControl();
-        MapControl.getLocation();    
-    }
+//    private void exploreLocation() {
+//        //prompt for and get the name of the file to save the game in
+//        
+//        this.console.println("\n\n Enter the file path for where the report is to be printed.");
+//        //getInput inherited from the view class is called to get the file path
+//        String filePath = this.getInput();    
+//        
+//        try{
+//            //call the control layer function
+//            MapControl.getLocation(filePath);
+//        } catch(Exception ex){
+//            ErrorView.display("MainMenuView", ex.getMessage());
+//        }
+//           
+//    }
 }

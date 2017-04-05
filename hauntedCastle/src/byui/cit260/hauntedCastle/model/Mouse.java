@@ -5,18 +5,55 @@
  */
 package byui.cit260.hauntedCastle.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 
 /**
  *
  * @author Saratf
  */
-public class Mouse extends Character{
+public class Mouse implements Serializable {
     
     //class instance variables
+    private  String name;
+    private  Point coordinates;
+    private  String description;
+    private  String displaySymbol;
     private double strenght;
 
     public Mouse() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Point getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDisplaySymbol() {
+        return displaySymbol;
+    }
+
+    public void setDisplaySymbol(String displaySymbol) {
+        this.displaySymbol = displaySymbol;
     }
 
     public double getStrenght() {
@@ -27,30 +64,6 @@ public class Mouse extends Character{
         this.strenght = strenght;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.strenght) ^ (Double.doubleToLongBits(this.strenght) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Mouse other = (Mouse) obj;
-        if (Double.doubleToLongBits(this.strenght) != Double.doubleToLongBits(other.strenght)) {
-            return false;
-        }
-        return true;
-    }
-            
+  
             
 }

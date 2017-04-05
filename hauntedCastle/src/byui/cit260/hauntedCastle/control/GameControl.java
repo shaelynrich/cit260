@@ -11,9 +11,11 @@ import byui.cit260.hauntedCastle.model.Game;
 import byui.cit260.hauntedCastle.model.Item;
 import byui.cit260.hauntedCastle.model.ItemList;
 import byui.cit260.hauntedCastle.model.Map;
+import byui.cit260.hauntedCastle.model.Mouse;
 import byui.cit260.hauntedCastle.model.Player;
 import byui.cit260.hauntedCastle.view.ErrorView;
 import hauntedcastle.HauntedCastle;
+import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,26 +31,33 @@ import static jdk.nashorn.tools.ShellFunctions.input;
  */
 public class GameControl {
     
-    
     public static void createNewGame(Player player)
-                            throws MapControlException {
-Game game = new Game(); //create the new game
-HauntedCastle.setCurrentGame(game); //save in Haunted Castle
+            throws MapControlException {
+        Game game = new Game(); //create the new game
+        HauntedCastle.setCurrentGame(game); //save in Haunted Castle
 
 //game.setPlayer(player); //save player in game
-      
 //create the inventory list and save in the game
-Item[] inventoryList = GameControl.createInventoryList();
-game.setInventory(inventoryList);
-
-Map map = MapControl.createMap(); //create and initialize new map
-game.setMap(map); //save map in game    
-
+        Item[] inventoryList = GameControl.createInventoryList();
+        game.setInventory(inventoryList);
+        
+        Map map = MapControl.createMap(); //create and initialize new map
+        game.setMap(map); //save map in game    
+        
+        Mouse mouse = new Mouse();
+        mouse.setCoordinates(new Point(3, 3));
+        mouse.setDescription("Big");
+        mouse.setDisplaySymbol("ST");
+        mouse.setName("Derek");
+        mouse.setStrenght(3);
+        
+        map.getLocations()[3][3].setMouse(mouse);
+        game.setMouse(mouse);
     }
     
-    public static Item[] createInventoryList(){
+    public static Item[] createInventoryList() {
         //created arra(list) of inventory items
-        Item[]inventory = new Item[5];
+        Item[] inventory = new Item[5];
         
         Item sword = new Item();
         sword.setDescription("Sword");
@@ -84,12 +93,13 @@ game.setMap(map); //save map in game
         
     }
     
-    public static void createHelpMenu(Player player){
+    public static void createHelpMenu(Player player) {
         HauntedCastle.outFile.println("\n*** createHelpMenu stub function called ***");
-
+        
     }
+    
     public static Player createPlayer(String name) {
-        if (name == null){
+        if (name == null) {
             return null;
         }
         
@@ -97,60 +107,58 @@ game.setMap(map); //save map in game
         player.setName(name);
         
         HauntedCastle.setPlayer(player); //save the player
-        
+
         return player;
     }
-    public static String createCharacter (String gender){
+    
+    public static String createCharacter(String gender) {
         String girl = "You picked a girl character";
         return girl;
     }
-
-    public static void saveGame(Game currentGame, String filePath) 
-                            throws GameControlException{
-        try( FileOutputStream fops = new FileOutputStream(filePath)){
+    
+    public static void saveGame(Game currentGame, String filePath)
+            throws GameControlException {
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
             
             output.writeObject(currentGame); //write the game object out to file
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
     }
-
-    public static void getSavedGame(String filePath) 
-                        throws GameControlException{
+    
+    public static void getSavedGame(String filePath)
+            throws GameControlException {
         Game game = null;
         
-        try( FileInputStream fips = new FileInputStream(filePath)){
+        try (FileInputStream fips = new FileInputStream(filePath)) {
             ObjectInputStream input = new ObjectInputStream(fips);
             
             game = (Game) input.readObject(); //read the game object from file
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
         //close the output file
         HauntedCastle.setCurrentGame(game); //save in HauntedCastle
     }
     
-public static void getReport(String filePath)
-                                
-                    throws GameControlException{
-                    Item[] itemArray = HauntedCastle.getCurrentGame().getInventory();
+    public static void getReport(String filePath)
+            throws GameControlException {
+        Item[] itemArray = HauntedCastle.getCurrentGame().getInventory();
         
-        try (PrintWriter out = new PrintWriter(filePath)){
+        try (PrintWriter out = new PrintWriter(filePath)) {
             //print title and column headings
             out.println("\n\n Inventory Report");
             out.printf("%n%-20s%10s", "Description", "Quantity");
             out.printf("%n%-20s%10s", "-----------", "--------");
             //print the description and quantity
-            for(Item item : itemArray){
-                out.printf("%n%-20s%7.2f", item.getDescription()
-                                             , item.getQuantityInStock());
+            for (Item item : itemArray) {
+                out.printf("%n%-20s%7.2f", item.getDescription(),
+                        item.getQuantityInStock());
             }
             
-        } catch (IOException ex){
+        } catch (IOException ex) {
             ErrorView.display("I/O Error: " + ex.getMessage());
         }
-}
+    }
 }

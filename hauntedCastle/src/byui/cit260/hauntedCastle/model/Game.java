@@ -14,13 +14,22 @@ import java.io.Serializable;
 public class Game implements Serializable{
     
     //class instance variables
+    private Item[] inventory;
     private int numbOfPeople;
     private double totalTime;
     private Player currentPlayer;
-    private Item [] inventory;
+    private Mouse mouse;
     private Map map;
 
     public Game() {
+    }
+
+    public Item[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Item[] inventory) {
+        this.inventory = inventory;
     }
 
     public int getNumbOfPeople() {
@@ -55,12 +64,12 @@ public class Game implements Serializable{
         this.map = map;
     }
 
-    public Item[] getInventory() {
-        return inventory;
+    public Mouse getMouse() {
+        return mouse;
     }
 
-    public void setInventory(Item[] inventory) {
-        this.inventory = inventory;
+    public void setMouse(Mouse mouse) {
+        this.mouse = mouse;
     }
     
 

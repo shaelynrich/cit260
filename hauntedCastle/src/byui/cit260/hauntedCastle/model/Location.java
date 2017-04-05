@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class Location implements Serializable {
     public double row;
     public double column;
+    public Mouse mouse = null;
     public double visited;
     public double amountRemaining;
     public Character character;
@@ -22,6 +23,14 @@ public class Location implements Serializable {
     public ArrayList<Item> items = new ArrayList<>(); 
 
     public Location() {
+    }
+
+    public Mouse getMouse() {
+        return mouse;
+    }
+
+    public void setMouse(Mouse mouse) {
+        this.mouse = mouse;
     }
 
     public double getRow() {
