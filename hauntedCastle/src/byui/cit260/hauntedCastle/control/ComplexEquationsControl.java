@@ -107,4 +107,50 @@ public class ComplexEquationsControl {
         }
         return true;
     }
+    
+    public static boolean calcCreateQuestions2 (String answer1, String answer2, String answer3)
+                                            throws ComplexEquationsControlException {
+        if (answer1 == null || answer2 == null || answer3 == null){
+            throw new ComplexEquationsControlException("Please enter a single character.");
+        }
+        if ("K".equals(answer1) || "k".equals(answer1)){
+            return true;
+        }
+        if ("E".equals(answer2) || "e".equals(answer2)){
+            return true;
+        }
+        if ("Y".equals(answer3) || "y".equals(answer2)){
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean calcGhost(double userAnswer) 
+                                            throws ComplexEquationsControlException {
+        if (userAnswer == 0){
+            throw new ComplexEquationsControlException("Please enter a number.");
+        }
+        if (userAnswer < 0 || userAnswer > 240) {
+            return false;
+        }
+        if (userAnswer < 75 || userAnswer > 150) {
+            return false;
+        }
+
+        return true;
+    }
+    
+    public static boolean calcCreateQuestions4 (double userAnswer)
+                                            throws ComplexEquationsControlException {
+        if (userAnswer == 0){
+            throw new ComplexEquationsControlException("Please enter a single number above 0.");
+        }
+        if (userAnswer < 3){
+            return false;
+        }
+        if (userAnswer > 5){
+            return false;
+        }
+        return true;
+    }
 }

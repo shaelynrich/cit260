@@ -12,6 +12,8 @@ import byui.cit260.hauntedCastle.model.Scene;
 import byui.cit260.hauntedCastle.model.SceneType;
 import hauntedcastle.HauntedCastle;
 import java.awt.Point;
+import java.io.PrintWriter;
+import static java.lang.System.out;
 
 /**
  *
@@ -165,5 +167,17 @@ public class MapControl {
                                             + " the bounds of the map.");
         }
      
+}
+    public static void getLocation(){
+                    Scene[] sceneArray = HauntedCastle.getCurrentGame().getMap();
+        
+            out.println("\n\n Exploring Location Report");
+            out.printf("%n%-20s%10s", "Description", "Display Symbol");
+            out.printf("%n%-20s%10s", "----------- ", "-------------");
+            //print the description and quantity
+            for(Scene scene : sceneArray){
+                out.printf("%n%-20s%10s", scene.getDescription()
+                                        , scene.getDisplaySymbol());
+            }
 }
 }

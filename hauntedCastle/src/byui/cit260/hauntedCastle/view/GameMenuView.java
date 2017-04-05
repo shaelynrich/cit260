@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package byui.cit260.hauntedCastle.view;
+import byui.cit260.hauntedCastle.control.GameControl;
+import byui.cit260.hauntedCastle.control.MapControl;
 import byui.cit260.hauntedCastle.control.ResourceControl;
 import byui.cit260.hauntedCastle.model.Item;
 import byui.cit260.hauntedCastle.model.Location;
@@ -25,7 +27,8 @@ public class GameMenuView extends View{
                   + "\nI View list of items in inventory"
                   + "\nM Move person to new location"
                   + "\nR Harvest Resource"
-                  + "\nU Use Resource"               
+                  + "\nU Use Resource"   
+                  + "\nE Explore Locations"
                   + "\nH List Sorted Items"     
                 + "\nQ Quit"
                   + "\n--------------------------------------");
@@ -58,6 +61,9 @@ public class GameMenuView extends View{
             case "H": //lesson 9 individaul assignment
                 //print list of sorted items
                 this.listSortedItems();
+                break;
+            case "E": //explore location
+                this.exploreLocation();
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try Again");
@@ -102,5 +108,9 @@ for (int i=0; i<locations.length; i++){
         ResourceControl resourceControl = new ResourceControl();
         resourceControl.main();
        
+    }
+    private void exploreLocation() {
+        //GameControl resourceControl = new ResourceControl();
+        MapControl.getLocation();    
     }
 }

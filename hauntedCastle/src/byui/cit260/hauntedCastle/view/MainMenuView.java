@@ -41,6 +41,9 @@ public class MainMenuView extends View{
                   + "\nQ Quit                                |"
                   + "\nV testPotionVolume                    |"
                   + "\nA challenge1                          |"
+                  + "\nR challenge2                          |"
+                  + "\nP challenge3                          |"
+                  + "\nL challenge4                          |"
                   + "\nC CalcRandomEquation"
                   + "\nM Print Report"
                   + "\n--------------------------------------");
@@ -70,6 +73,15 @@ public class MainMenuView extends View{
             case "A": //calc random
                 this.challenge1();
                 break; 
+            case "R": //challenge 2
+                this.challenge2();
+                break; 
+            case "P": //challenge 3
+                this.challenge3();
+                break; 
+            case "L": //challenge 4
+                this.challenge4();
+                break;
             case "M": //display report
                 this.displayReport();
                 break; 
@@ -144,7 +156,7 @@ public class MainMenuView extends View{
     private void calcRandomEquation() {
         
         CalcRandomEquation calcRandomEquation = new CalcRandomEquation();
-        //display the help menu
+        
         calcRandomEquation.display();
         
         try {
@@ -152,7 +164,8 @@ public class MainMenuView extends View{
         } catch (ComplexEquationsControlException cece) {
             this.console.println(cece.getMessage());
             return;
-        }  }
+        }  
+    }
     
     
     private void challenge1() {
@@ -160,6 +173,20 @@ public class MainMenuView extends View{
         Challenge1 challenge1 = new Challenge1();
         challenge1.display();
     }    
+    
+    private void challenge2() {
+        Challenge2 challenge2 = new Challenge2();
+        challenge2.display();    
+    }
+    
+    private void challenge3() {
+        Challenge3 challenge3 = new Challenge3();
+        challenge3.display();    
+    }
+    private void challenge4() {
+        Challenge4 challenge4 = new Challenge4();
+        challenge4.display();    
+    }
 
     private boolean calcOfPotion() throws ComplexEquationsControlException {
         
@@ -185,11 +212,14 @@ public class MainMenuView extends View{
 
             
     private void displayReport() {
+        //prompt for and get the name of the file to save the game in
+        
         this.console.println("\n\n Enter the file path for where the report is to be printed.");
+        //getInput inherited from the view class is called to get the file path
         String filePath = this.getInput();    
         
         try{
-            //display report
+            //call the control layer function
             GameControl.getReport(filePath);
         } catch(Exception ex){
             ErrorView.display("MainMenuView", ex.getMessage());
